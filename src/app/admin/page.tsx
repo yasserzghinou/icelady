@@ -4,13 +4,13 @@ import { redirect } from 'next/navigation';
 
 import { ADMIN_SESSION_COOKIE, verifyAdminSessionToken } from '@/lib/admin/session';
 import {
-  getAdminSettings,
-  getLeadAnalytics,
-  getLeadSubmissions,
-  getServicesData,
-  getSiteSettingsData
+  getAdminSettingsAsync,
+  getLeadAnalyticsAsync,
+  getLeadSubmissionsAsync,
+  getServicesDataAsync,
+  getSiteSettingsDataAsync
 } from '@/lib/admin/store';
-import { getLocalizedServices } from '@/lib/localizedEntities';
+import { getLocalizedServicesAsync } from '@/lib/localizedEntities';
 
 export const metadata: Metadata = {
   title: 'Admin Dashboard',
@@ -54,17 +54,17 @@ export default async function AdminDashboardPage({
     redirect('/admin/login?returnTo=%2Fadmin');
   }
 
-  const siteSettings = getSiteSettingsData();
-  const adminSettings = getAdminSettings();
-  const servicesPayload = getServicesData();
+  const siteSettings = await getSiteSettingsDataAsync();
+  const adminSettings = await getAdminSettingsAsync();
+  const servicesPayload = await getServicesDataAsync();
   const localizedFrBySlug = new Map(
-    getLocalizedServices('fr').map((service) => [service.slug, service])
+    (await getLocalizedServicesAsync('fr')).map((service) => [service.slug, service])
   );
   const localizedArBySlug = new Map(
-    getLocalizedServices('ar').map((service) => [service.slug, service])
+    (await getLocalizedServicesAsync('ar')).map((service) => [service.slug, service])
   );
-  const analytics = getLeadAnalytics();
-  const submissions = getLeadSubmissions(20);
+  const analytics = await getLeadAnalyticsAsync();
+  const submissions = await getLeadSubmissionsAsync(20);
 
   const statusCode = searchParams?.status;
   const statusMessage = statusCode ? statusMessageByCode[statusCode] : null;

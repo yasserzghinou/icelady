@@ -17,6 +17,7 @@
   "dependencies": {
     "@mdx-js/loader": "^3.1.1",
     "@mdx-js/mdx": "^3.0.1",
+    "@netlify/blobs": "^10.6.0",
     "@next/mdx": "^14.2.24",
     "clsx": "^2.1.1",
     "fast-xml-parser": "^4.5.1",

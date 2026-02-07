@@ -1,6 +1,7 @@
+import { getStore } from '@netlify/blobs';
+import { randomUUID } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, renameSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
-import { randomUUID } from 'node:crypto';
 
 export interface SiteSettingsData {
   brand: string;
@@ -164,6 +165,15 @@ const SERVICES_FILE = path.join(CONTENT_DIR, 'services.json');
 const ADMIN_SETTINGS_FILE = path.join(DATA_DIR, 'admin-settings.json');
 const LEAD_SUBMISSIONS_FILE = path.join(DATA_DIR, 'lead-submissions.json');
 
+const NETLIFY_ADMIN_STORE = 'icelady-admin';
+
+const BLOB_KEYS = {
+  siteSettings: 'site-settings',
+  services: 'services',
+  adminSettings: 'admin-settings',
+  leadSubmissions: 'lead-submissions'
+} as const;
+
 function toJson(value: unknown): string {
   return `${JSON.stringify(value, null, 2)}\n`;
 }
@@ -225,8 +235,8 @@ function normalizeLocalizedContent(
   };
 }
 
-export function getSiteSettingsData(): SiteSettingsData {
-  return readJsonFile<SiteSettingsData>(SITE_SETTINGS_FILE, {
+function buildDefaultSiteSettings(): SiteSettingsData {
+  return {
     brand: 'Ice Lady',
     siteName: 'Ice Lady Marrakech',
     baseUrl: 'https://islady.ma',
@@ -245,13 +255,84 @@ export function getSiteSettingsData(): SiteSettingsData {
       mapEmbedUrl: '',
       hours: []
     }
-  });
+  };
 }
 
-export function updateBusinessSettings(input: BusinessSettingsInput): SiteSettingsData {
-  const current = getSiteSettingsData();
+function buildDefaultServicesPayload(): ServicesPayload {
+  return {
+    categories: [],
+    services: []
+  };
+}
 
-  const next: SiteSettingsData = {
+function buildDefaultSubmissions(): LeadSubmissionsPayload {
+  return {
+    submissions: []
+  };
+}
+
+function getBlobStore() {
+  const hasContext = Boolean(
+    process.env.NETLIFY_BLOBS_CONTEXT ||
+      process.env.NETLIFY ||
+      (globalThis as { netlifyBlobsContext?: unknown }).netlifyBlobsContext
+  );
+
+  if (!hasContext) {
+    return null;
+  }
+
+  try {
+    return getStore({ name: NETLIFY_ADMIN_STORE, consistency: 'strong' });
+  } catch {
+    return null;
+  }
+}
+
+async function readPersistentJson<T>(key: string, filePath: string, fallback: T): Promise<T> {
+  const store = getBlobStore();
+
+  if (!store) {
+    return readJsonFile<T>(filePath, fallback);
+  }
+
+  try {
+    const blobValue = (await store.get(key, {
+      consistency: 'strong',
+      type: 'json'
+    })) as T | null;
+
+    if (blobValue !== null) {
+      return blobValue;
+    }
+
+    await store.setJSON(key, fallback, { onlyIfNew: true });
+    return fallback;
+  } catch {
+    return readJsonFile<T>(filePath, fallback);
+  }
+}
+
+async function writePersistentJson(key: string, filePath: string, value: unknown): Promise<void> {
+  const store = getBlobStore();
+
+  if (!store) {
+    writeJsonAtomic(filePath, value);
+    return;
+  }
+
+  try {
+    await store.setJSON(key, value);
+  } catch {
+    writeJsonAtomic(filePath, value);
+  }
+}
+
+function buildNextBusinessSettings(
+  current: SiteSettingsData,
+  input: BusinessSettingsInput
+): SiteSettingsData {
+  return {
     ...current,
     siteName: normalizeString(input.siteName, 120),
     description: normalizeString(input.description, 500),
@@ -268,27 +349,9 @@ export function updateBusinessSettings(input: BusinessSettingsInput): SiteSettin
         .filter((hour) => hour.length > 0)
     }
   };
-
-  writeJsonAtomic(SITE_SETTINGS_FILE, next);
-  return next;
 }
 
-export function getServicesData(): ServicesPayload {
-  return readJsonFile<ServicesPayload>(SERVICES_FILE, {
-    categories: [],
-    services: []
-  });
-}
-
-export function updateServiceData(slug: string, input: ServiceUpdateInput): ServiceData | null {
-  const payload = getServicesData();
-  const serviceIndex = payload.services.findIndex((service) => service.slug === slug);
-
-  if (serviceIndex < 0) {
-    return null;
-  }
-
-  const current = payload.services[serviceIndex];
+function buildNextServiceData(current: ServiceData, input: ServiceUpdateInput): ServiceData {
   const nextName = normalizeString(input.name, 180) || current.name;
   const nextCategory = normalizeString(input.category, 120) || current.category;
   const nextTagline = normalizeString(input.tagline, 180) || current.tagline;
@@ -318,7 +381,7 @@ export function updateServiceData(slug: string, input: ServiceUpdateInput): Serv
     }
   };
 
-  const nextService: ServiceData = {
+  return {
     ...current,
     name: nextName,
     category: nextCategory,
@@ -341,16 +404,6 @@ export function updateServiceData(slug: string, input: ServiceUpdateInput): Serv
       ar: normalizeLocalizedContent(input.ar, arFallback)
     }
   };
-
-  const nextPayload: ServicesPayload = {
-    ...payload,
-    services: payload.services.map((service, index) =>
-      index === serviceIndex ? nextService : service
-    )
-  };
-
-  writeJsonAtomic(SERVICES_FILE, nextPayload);
-  return nextService;
 }
 
 function buildDefaultAdminSettings(): AdminSettings {
@@ -363,8 +416,105 @@ function buildDefaultAdminSettings(): AdminSettings {
   };
 }
 
+function getLeadSubmissionsPayload(): LeadSubmissionsPayload {
+  return readJsonFile<LeadSubmissionsPayload>(LEAD_SUBMISSIONS_FILE, buildDefaultSubmissions());
+}
+
+export function getSiteSettingsData(): SiteSettingsData {
+  return readJsonFile<SiteSettingsData>(SITE_SETTINGS_FILE, buildDefaultSiteSettings());
+}
+
+export async function getSiteSettingsDataAsync(): Promise<SiteSettingsData> {
+  return readPersistentJson<SiteSettingsData>(
+    BLOB_KEYS.siteSettings,
+    SITE_SETTINGS_FILE,
+    getSiteSettingsData()
+  );
+}
+
+export function updateBusinessSettings(input: BusinessSettingsInput): SiteSettingsData {
+  const current = getSiteSettingsData();
+  const next = buildNextBusinessSettings(current, input);
+
+  writeJsonAtomic(SITE_SETTINGS_FILE, next);
+  return next;
+}
+
+export async function updateBusinessSettingsAsync(
+  input: BusinessSettingsInput
+): Promise<SiteSettingsData> {
+  const current = await getSiteSettingsDataAsync();
+  const next = buildNextBusinessSettings(current, input);
+
+  await writePersistentJson(BLOB_KEYS.siteSettings, SITE_SETTINGS_FILE, next);
+  return next;
+}
+
+export function getServicesData(): ServicesPayload {
+  return readJsonFile<ServicesPayload>(SERVICES_FILE, buildDefaultServicesPayload());
+}
+
+export async function getServicesDataAsync(): Promise<ServicesPayload> {
+  return readPersistentJson<ServicesPayload>(BLOB_KEYS.services, SERVICES_FILE, getServicesData());
+}
+
+export function updateServiceData(slug: string, input: ServiceUpdateInput): ServiceData | null {
+  const payload = getServicesData();
+  const serviceIndex = payload.services.findIndex((service) => service.slug === slug);
+
+  if (serviceIndex < 0) {
+    return null;
+  }
+
+  const current = payload.services[serviceIndex];
+  const nextService = buildNextServiceData(current, input);
+
+  const nextPayload: ServicesPayload = {
+    ...payload,
+    services: payload.services.map((service, index) =>
+      index === serviceIndex ? nextService : service
+    )
+  };
+
+  writeJsonAtomic(SERVICES_FILE, nextPayload);
+  return nextService;
+}
+
+export async function updateServiceDataAsync(
+  slug: string,
+  input: ServiceUpdateInput
+): Promise<ServiceData | null> {
+  const payload = await getServicesDataAsync();
+  const serviceIndex = payload.services.findIndex((service) => service.slug === slug);
+
+  if (serviceIndex < 0) {
+    return null;
+  }
+
+  const current = payload.services[serviceIndex];
+  const nextService = buildNextServiceData(current, input);
+
+  const nextPayload: ServicesPayload = {
+    ...payload,
+    services: payload.services.map((service, index) =>
+      index === serviceIndex ? nextService : service
+    )
+  };
+
+  await writePersistentJson(BLOB_KEYS.services, SERVICES_FILE, nextPayload);
+  return nextService;
+}
+
 export function getAdminSettings(): AdminSettings {
   return readJsonFile<AdminSettings>(ADMIN_SETTINGS_FILE, buildDefaultAdminSettings());
+}
+
+export async function getAdminSettingsAsync(): Promise<AdminSettings> {
+  return readPersistentJson<AdminSettings>(
+    BLOB_KEYS.adminSettings,
+    ADMIN_SETTINGS_FILE,
+    getAdminSettings()
+  );
 }
 
 export function updateAdminSettings(input: AdminSettings): AdminSettings {
@@ -378,19 +528,37 @@ export function updateAdminSettings(input: AdminSettings): AdminSettings {
   return nextSettings;
 }
 
-function buildDefaultSubmissions(): LeadSubmissionsPayload {
-  return {
-    submissions: []
+export async function updateAdminSettingsAsync(input: AdminSettings): Promise<AdminSettings> {
+  const nextSettings: AdminSettings = {
+    formRecipientEmail: normalizeString(input.formRecipientEmail, 120),
+    resendFromEmail: normalizeString(input.resendFromEmail, 120),
+    resendFromName: normalizeString(input.resendFromName, 120)
   };
+
+  await writePersistentJson(BLOB_KEYS.adminSettings, ADMIN_SETTINGS_FILE, nextSettings);
+  return nextSettings;
 }
 
-function getLeadSubmissionsPayload(): LeadSubmissionsPayload {
-  return readJsonFile<LeadSubmissionsPayload>(LEAD_SUBMISSIONS_FILE, buildDefaultSubmissions());
+async function getLeadSubmissionsPayloadAsync(): Promise<LeadSubmissionsPayload> {
+  return readPersistentJson<LeadSubmissionsPayload>(
+    BLOB_KEYS.leadSubmissions,
+    LEAD_SUBMISSIONS_FILE,
+    getLeadSubmissionsPayload()
+  );
 }
 
 export function getLeadSubmissions(limit = 50): LeadSubmission[] {
   return getLeadSubmissionsPayload()
     .submissions.slice()
+    .sort((a, b) => b.submittedAt.localeCompare(a.submittedAt))
+    .slice(0, limit);
+}
+
+export async function getLeadSubmissionsAsync(limit = 50): Promise<LeadSubmission[]> {
+  const payload = await getLeadSubmissionsPayloadAsync();
+
+  return payload.submissions
+    .slice()
     .sort((a, b) => b.submittedAt.localeCompare(a.submittedAt))
     .slice(0, limit);
 }
@@ -413,6 +581,33 @@ export function recordLeadSubmission(input: LeadSubmissionInput): LeadSubmission
 
   const nextSubmissions = [submission, ...payload.submissions].slice(0, 5000);
   writeJsonAtomic(LEAD_SUBMISSIONS_FILE, {
+    submissions: nextSubmissions
+  });
+
+  return submission;
+}
+
+export async function recordLeadSubmissionAsync(
+  input: LeadSubmissionInput
+): Promise<LeadSubmission> {
+  const payload = await getLeadSubmissionsPayloadAsync();
+  const submission: LeadSubmission = {
+    id: randomUUID(),
+    name: normalizeString(input.name, 120),
+    phone: normalizeString(input.phone, 60),
+    slot: normalizeString(input.slot, 120),
+    zone: normalizeString(input.zone || '', 120) || undefined,
+    contactPreference: normalizeString(input.contactPreference || '', 60) || undefined,
+    locale: normalizeString(input.locale || '', 12) || undefined,
+    sourcePath: normalizeString(input.sourcePath || '', 240) || undefined,
+    submittedAt: new Date().toISOString(),
+    status: 'received',
+    recipientEmail: normalizeString(input.recipientEmail, 120)
+  };
+
+  const nextSubmissions = [submission, ...payload.submissions].slice(0, 5000);
+
+  await writePersistentJson(BLOB_KEYS.leadSubmissions, LEAD_SUBMISSIONS_FILE, {
     submissions: nextSubmissions
   });
 
@@ -448,10 +643,38 @@ export function markLeadSubmissionStatus(
   return next;
 }
 
-export function getLeadAnalytics(): LeadAnalytics {
+export async function markLeadSubmissionStatusAsync(
+  id: string,
+  status: LeadSubmissionStatus,
+  emailError?: string
+): Promise<LeadSubmission | null> {
+  const payload = await getLeadSubmissionsPayloadAsync();
+  const index = payload.submissions.findIndex((submission) => submission.id === id);
+
+  if (index < 0) {
+    return null;
+  }
+
+  const current = payload.submissions[index];
+  const next: LeadSubmission = {
+    ...current,
+    status,
+    emailError: emailError ? normalizeString(emailError, 240) : undefined
+  };
+
+  const submissions = payload.submissions.slice();
+  submissions[index] = next;
+
+  await writePersistentJson(BLOB_KEYS.leadSubmissions, LEAD_SUBMISSIONS_FILE, {
+    submissions
+  });
+
+  return next;
+}
+
+function buildLeadAnalytics(submissions: LeadSubmission[]): LeadAnalytics {
   const now = Date.now();
   const dayMs = 24 * 60 * 60 * 1000;
-  const submissions = getLeadSubmissionsPayload().submissions;
 
   return {
     total: submissions.length,
@@ -470,4 +693,13 @@ export function getLeadAnalytics(): LeadAnalytics {
     emailed: submissions.filter((submission) => submission.status === 'emailed').length,
     emailFailed: submissions.filter((submission) => submission.status === 'email_failed').length
   };
+}
+
+export function getLeadAnalytics(): LeadAnalytics {
+  return buildLeadAnalytics(getLeadSubmissionsPayload().submissions);
+}
+
+export async function getLeadAnalyticsAsync(): Promise<LeadAnalytics> {
+  const payload = await getLeadSubmissionsPayloadAsync();
+  return buildLeadAnalytics(payload.submissions);
 }

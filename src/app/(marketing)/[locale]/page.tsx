@@ -8,32 +8,33 @@ import { HeroSection } from '@/components/sections/HeroSection';
 import { ServiceHighlightsSection } from '@/components/sections/ServiceHighlightsSection';
 import { SocialProofSection } from '@/components/sections/SocialProofSection';
 import { DEFAULT_LOCALE, isLocale, localizePath, type Locale } from '@/lib/i18n';
-import { getLocalizedSiteSettings } from '@/lib/localizedContent';
-import { getLocalizedServices } from '@/lib/localizedEntities';
+import { getLocalizedSiteSettingsAsync } from '@/lib/localizedContent';
+import { getLocalizedServicesAsync } from '@/lib/localizedEntities';
 import { buildMetadata } from '@/lib/seo/meta';
 
 export function generateStaticParams() {
   return [{ locale: 'fr' }, { locale: 'en' }, { locale: 'ar' }];
 }
 
-export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
   const locale = isLocale(params.locale) ? (params.locale as Locale) : DEFAULT_LOCALE;
+  const settings = await getLocalizedSiteSettingsAsync(locale);
 
   return buildMetadata({
     path: `/${locale}`,
-    title: getLocalizedSiteSettings(locale).hero.title,
-    description: getLocalizedSiteSettings(locale).description,
+    title: settings.hero.title,
+    description: settings.description,
     type: 'website'
   });
 }
 
-export default function LocalizedHomePage({ params }: { params: { locale: string } }) {
+export default async function LocalizedHomePage({ params }: { params: { locale: string } }) {
   if (!isLocale(params.locale)) {
     notFound();
   }
 
   const locale = params.locale as Locale;
-  const settings = getLocalizedSiteSettings(locale);
+  const settings = await getLocalizedSiteSettingsAsync(locale);
   const localizedSettings = {
     ...settings,
     hero: {
@@ -48,7 +49,7 @@ export default function LocalizedHomePage({ params }: { params: { locale: string
       }
     }
   };
-  const services = getLocalizedServices(locale).map((service) => ({
+  const services = (await getLocalizedServicesAsync(locale)).map((service) => ({
     ...service,
     path: localizePath(service.path, locale)
   }));

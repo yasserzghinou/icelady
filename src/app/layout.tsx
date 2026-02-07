@@ -2,24 +2,26 @@ import type { Metadata } from 'next';
 import Script from 'next/script';
 
 import { SeoJsonLd } from '@/components/Seo';
-import { getSiteSettings } from '@/lib/content';
+import { getSiteSettingsDataAsync } from '@/lib/admin/store';
 import { localBusinessSchema } from '@/lib/seo/schema';
 
 import './globals.css';
 
-const initialSettings = getSiteSettings();
+export async function generateMetadata(): Promise<Metadata> {
+  const settings = await getSiteSettingsDataAsync();
 
-export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || String(initialSettings.baseUrl) || 'https://islady.ma'),
-  title: {
-    default: 'Ice Lady Marrakech | Premium Cryotherapy & Beauty Clinic',
-    template: '%s | Ice Lady Marrakech'
-  },
-  description: String(initialSettings.description)
-};
+  return {
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || String(settings.baseUrl) || 'https://islady.ma'),
+    title: {
+      default: 'Ice Lady Marrakech | Premium Cryotherapy & Beauty Clinic',
+      template: '%s | Ice Lady Marrakech'
+    },
+    description: String(settings.description)
+  };
+}
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const siteSettings = getSiteSettings();
+export default async function RootLayout({ children }: { children: React.ReactNode }) {
+  const siteSettings = await getSiteSettingsDataAsync();
   const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
   return (

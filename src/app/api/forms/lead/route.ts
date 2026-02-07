@@ -4,9 +4,9 @@ import { sendLeadSubmissionEmail } from '@/lib/admin/email';
 import { getClientIp } from '@/lib/admin/http';
 import { enforceRateLimit } from '@/lib/admin/rate-limit';
 import {
-  getAdminSettings,
-  markLeadSubmissionStatus,
-  recordLeadSubmission
+  getAdminSettingsAsync,
+  markLeadSubmissionStatusAsync,
+  recordLeadSubmissionAsync
 } from '@/lib/admin/store';
 
 function validatePhone(value: string): boolean {
@@ -93,8 +93,8 @@ export async function POST(request: NextRequest) {
     return response;
   }
 
-  const settings = getAdminSettings();
-  const submission = recordLeadSubmission({
+  const settings = await getAdminSettingsAsync();
+  const submission = await recordLeadSubmissionAsync({
     name,
     phone,
     slot,
@@ -113,9 +113,9 @@ export async function POST(request: NextRequest) {
         fromName: settings.resendFromName,
         submission
       });
-      markLeadSubmissionStatus(submission.id, 'emailed');
+      await markLeadSubmissionStatusAsync(submission.id, 'emailed');
     } catch (error) {
-      markLeadSubmissionStatus(
+      await markLeadSubmissionStatusAsync(
         submission.id,
         'email_failed',
         error instanceof Error ? error.message : 'Unknown email provider error'

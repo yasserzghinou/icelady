@@ -1,4 +1,5 @@
 import { getSiteSettings } from '@/lib/content';
+import { getSiteSettingsDataAsync } from '@/lib/admin/store';
 import translations from '@/content/translations.json';
 import type { GenericPage } from '@/lib/content';
 import { t, type Locale } from '@/lib/i18n';
@@ -199,7 +200,15 @@ function mapPhrase(locale: Locale, value: string): string {
 }
 
 export function getLocalizedSiteSettings(locale: Locale) {
-  const siteSettings = getSiteSettings();
+  return localizeSiteSettings(getSiteSettings(), locale);
+}
+
+export async function getLocalizedSiteSettingsAsync(locale: Locale) {
+  const siteSettings = (await getSiteSettingsDataAsync()) as ReturnType<typeof getSiteSettings>;
+  return localizeSiteSettings(siteSettings, locale);
+}
+
+function localizeSiteSettings(siteSettings: ReturnType<typeof getSiteSettings>, locale: Locale) {
   const trans = translations[locale] || translations.en;
   const localCopy = localeSiteCopy[locale] || localeSiteCopy.en;
 

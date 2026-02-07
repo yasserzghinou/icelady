@@ -1,4 +1,5 @@
 import { getAllBlogPosts, getServices } from '@/lib/content';
+import { getServicesDataAsync } from '@/lib/admin/store';
 import type { Locale } from '@/lib/i18n';
 
 type ServiceCopy = {
@@ -386,7 +387,15 @@ function getLocalizedBenefits(slug: string, locale: Locale): string[] {
 }
 
 export function getLocalizedServices(locale: Locale) {
-  const services = getServices();
+  return localizeServices(getServices(), locale);
+}
+
+export async function getLocalizedServicesAsync(locale: Locale) {
+  const payload = await getServicesDataAsync();
+  return localizeServices(payload.services, locale);
+}
+
+function localizeServices(services: ReturnType<typeof getServices>, locale: Locale) {
 
   return services.map((service) => {
     const localizedBase = {

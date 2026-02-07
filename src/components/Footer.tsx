@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { getSiteSettings } from '@/lib/content';
+import { getSiteSettingsDataAsync } from '@/lib/admin/store';
 import { DEFAULT_LOCALE, Locale, localizePath, t } from '@/lib/i18n';
 import translations from '@/content/translations.json';
 
@@ -15,8 +15,8 @@ interface FooterProps {
   locale?: Locale;
 }
 
-export function Footer({ locale = DEFAULT_LOCALE }: FooterProps) {
-  const siteSettings = getSiteSettings();
+export async function Footer({ locale = DEFAULT_LOCALE }: FooterProps) {
+  const siteSettings = await getSiteSettingsDataAsync();
   const localizedDescription = translations[locale]?.brandTagline || siteSettings.description;
 
   return (

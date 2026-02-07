@@ -8,7 +8,7 @@ import {
   toRequestUrl
 } from '@/lib/admin/http';
 import { revalidateServiceContent } from '@/lib/admin/revalidate';
-import { updateServiceData } from '@/lib/admin/store';
+import { updateServiceDataAsync } from '@/lib/admin/store';
 
 function redirectToRelative(request: NextRequest, target: string): NextResponse {
   const response = NextResponse.redirect(toRequestUrl(request, target));
@@ -47,7 +47,7 @@ export async function POST(
     .map((image) => image.trim())
     .filter(Boolean);
 
-  const updated = updateServiceData(slug, {
+  const updated = await updateServiceDataAsync(slug, {
     name: String(formData.get('name') || ''),
     category: String(formData.get('category') || ''),
     tagline: String(formData.get('tagline') || ''),

@@ -9,7 +9,7 @@ import {
   normalizeEmail,
   toRequestUrl
 } from '@/lib/admin/http';
-import { updateAdminSettings } from '@/lib/admin/store';
+import { updateAdminSettingsAsync } from '@/lib/admin/store';
 
 function redirectToRelative(request: NextRequest, target: string): NextResponse {
   const response = NextResponse.redirect(toRequestUrl(request, target));
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
     return redirectWithStatus(request, returnTo, 'forms-invalid-email');
   }
 
-  updateAdminSettings({
+  await updateAdminSettingsAsync({
     formRecipientEmail,
     resendFromEmail,
     resendFromName: String(formData.get('resendFromName') || '')

@@ -3,30 +3,31 @@ import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
 
 import { DEFAULT_LOCALE, isLocale, t, type Locale } from '@/lib/i18n';
-import { getLocalizedSiteSettings } from '@/lib/localizedContent';
+import { getLocalizedSiteSettingsAsync } from '@/lib/localizedContent';
 import { buildMetadata } from '@/lib/seo/meta';
 
 export function generateStaticParams() {
   return [{ locale: 'fr' }, { locale: 'en' }, { locale: 'ar' }];
 }
 
-export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
   const locale = isLocale(params.locale) ? (params.locale as Locale) : DEFAULT_LOCALE;
+  const settings = await getLocalizedSiteSettingsAsync(locale);
 
   return buildMetadata({
     path: `/${locale}/pages/contact`,
-    title: getLocalizedSiteSettings(locale).contactPage.title,
-    description: getLocalizedSiteSettings(locale).contactPage.intro
+    title: settings.contactPage.title,
+    description: settings.contactPage.intro
   });
 }
 
-export default function LocalizedContactPage({ params }: { params: { locale: string } }) {
+export default async function LocalizedContactPage({ params }: { params: { locale: string } }) {
   if (!isLocale(params.locale)) {
     notFound();
   }
 
   const locale = params.locale as Locale;
-  const settings = getLocalizedSiteSettings(locale);
+  const settings = await getLocalizedSiteSettingsAsync(locale);
 
   return (
     <section className="section-shell pb-14 pt-14">

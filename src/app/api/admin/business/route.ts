@@ -10,7 +10,7 @@ import {
   toRequestUrl
 } from '@/lib/admin/http';
 import { revalidateBusinessContent } from '@/lib/admin/revalidate';
-import { updateBusinessSettings } from '@/lib/admin/store';
+import { updateBusinessSettingsAsync } from '@/lib/admin/store';
 
 function redirectToRelative(request: NextRequest, target: string): NextResponse {
   const response = NextResponse.redirect(toRequestUrl(request, target));
@@ -47,7 +47,7 @@ export async function POST(request: NextRequest) {
     .map((line) => line.trim())
     .filter(Boolean);
 
-  updateBusinessSettings({
+  await updateBusinessSettingsAsync({
     siteName: String(formData.get('siteName') || ''),
     description: String(formData.get('description') || ''),
     phone: String(formData.get('phone') || ''),

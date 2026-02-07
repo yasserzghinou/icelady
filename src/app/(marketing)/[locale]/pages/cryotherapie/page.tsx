@@ -6,7 +6,7 @@ import { SeoJsonLd } from '@/components/Seo';
 import { ServiceLandingTemplate } from '@/components/landing/ServiceLandingTemplate';
 import { DEFAULT_LOCALE, isLocale, localizePath, type Locale } from '@/lib/i18n';
 import { getCryotherapyPageCopy } from '@/lib/localizedCryotherapyPage';
-import { getLocalizedSiteSettings } from '@/lib/localizedContent';
+import { getLocalizedSiteSettingsAsync } from '@/lib/localizedContent';
 import { buildMetadata } from '@/lib/seo/meta';
 import { faqPageSchema, localBusinessSchema } from '@/lib/seo/schema';
 
@@ -27,14 +27,14 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
   });
 }
 
-export default function CryotherapyLandingPage({ params }: { params: { locale: string } }) {
+export default async function CryotherapyLandingPage({ params }: { params: { locale: string } }) {
   if (!isLocale(params.locale)) {
     notFound();
   }
 
   const locale = params.locale as Locale;
   const copy = getCryotherapyPageCopy(locale);
-  const settings = getLocalizedSiteSettings(locale);
+  const settings = await getLocalizedSiteSettingsAsync(locale);
   const contactPath = localizePath('/en/pages/contact', locale);
   const servicesPath = localizePath('/en/collections/all', locale);
 

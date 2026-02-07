@@ -4,7 +4,7 @@ import type { Metadata } from 'next';
 
 import { TreatmentMenuTabs } from '@/components/sections/TreatmentMenuTabs';
 import { DEFAULT_LOCALE, isLocale, localizePath, t, type Locale } from '@/lib/i18n';
-import { getLocalizedServices } from '@/lib/localizedEntities';
+import { getLocalizedServicesAsync } from '@/lib/localizedEntities';
 import { buildMetadata } from '@/lib/seo/meta';
 
 type GoalId = 'all' | 'slim' | 'drain' | 'antiAge' | 'glow' | 'redefine';
@@ -670,13 +670,13 @@ export function generateMetadata({ params }: { params: { locale: string } }): Me
   });
 }
 
-export default function LocalizedServicesIndexPage({ params }: { params: { locale: string } }) {
+export default async function LocalizedServicesIndexPage({ params }: { params: { locale: string } }) {
   if (!isLocale(params.locale)) {
     notFound();
   }
 
   const locale = params.locale as Locale;
-  const services = getLocalizedServices(locale);
+  const services = await getLocalizedServicesAsync(locale);
   const copy = menuCopy[locale];
   const serviceBySlug = new Map(services.map((service) => [service.slug, service]));
   const contactHref = localizePath('/en/pages/contact', locale);

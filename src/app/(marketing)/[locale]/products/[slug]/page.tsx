@@ -6,16 +6,20 @@ import type { Metadata } from 'next';
 import { CTA } from '@/components/CTA';
 import { DEFAULT_LOCALE, isLocale, localizePath, t, type Locale } from '@/lib/i18n';
 import { getCryotherapyPageCopy } from '@/lib/localizedCryotherapyPage';
-import { getLocalizedServices } from '@/lib/localizedEntities';
+import { getLocalizedServicesAsync } from '@/lib/localizedEntities';
 import { buildMetadata } from '@/lib/seo/meta';
 
-export function generateStaticParams() {
+export async function generateStaticParams() {
   const locales = ['fr', 'en', 'ar'];
-  const services = getLocalizedServices('en');
+  const services = await getLocalizedServicesAsync('en');
   return locales.flatMap((locale) => services.map((service) => ({ locale, slug: service.slug })));
 }
 
-export function generateMetadata({ params }: { params: { locale: string; slug: string } }): Metadata {
+export async function generateMetadata({
+  params
+}: {
+  params: { locale: string; slug: string };
+}): Promise<Metadata> {
   const locale = isLocale(params.locale) ? (params.locale as Locale) : DEFAULT_LOCALE;
   if (params.slug === 'therapiefroid') {
     const copy = getCryotherapyPageCopy(locale);
@@ -26,7 +30,7 @@ export function generateMetadata({ params }: { params: { locale: string; slug: s
     });
   }
 
-  const service = getLocalizedServices(locale).find((item) => item.slug === params.slug);
+  const service = (await getLocalizedServicesAsync(locale)).find((item) => item.slug === params.slug);
 
   if (!service) {
     return buildMetadata({
@@ -43,7 +47,11 @@ export function generateMetadata({ params }: { params: { locale: string; slug: s
   });
 }
 
-export default function LocalizedServiceDetailPage({ params }: { params: { locale: string; slug: string } }) {
+export default async function LocalizedServiceDetailPage({
+  params
+}: {
+  params: { locale: string; slug: string };
+}) {
   if (!isLocale(params.locale)) {
     notFound();
   }
@@ -53,7 +61,7 @@ export default function LocalizedServiceDetailPage({ params }: { params: { local
     redirect(localizePath('/en/pages/cryotherapie', locale));
   }
 
-  const service = getLocalizedServices(locale).find((item) => item.slug === params.slug);
+  const service = (await getLocalizedServicesAsync(locale)).find((item) => item.slug === params.slug);
 
   if (!service) {
     notFound();
