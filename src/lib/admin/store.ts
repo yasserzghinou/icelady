@@ -202,6 +202,15 @@ function readJsonFile<T>(filePath: string, fallback: T): T {
   }
 }
 
+function readJsonFileReadonly<T>(filePath: string, fallback: T): T {
+  try {
+    const raw = readFileSync(filePath, 'utf8');
+    return JSON.parse(raw) as T;
+  } catch {
+    return fallback;
+  }
+}
+
 function normalizeString(value: string, maxLength: number): string {
   return value.replace(/\r/g, '').trim().slice(0, maxLength);
 }
@@ -293,7 +302,7 @@ async function readPersistentJson<T>(key: string, filePath: string, fallback: T)
   const store = getBlobStore();
 
   if (!store) {
-    return readJsonFile<T>(filePath, fallback);
+    return readJsonFileReadonly<T>(filePath, fallback);
   }
 
   try {
@@ -309,7 +318,7 @@ async function readPersistentJson<T>(key: string, filePath: string, fallback: T)
     await store.setJSON(key, fallback, { onlyIfNew: true });
     return fallback;
   } catch {
-    return readJsonFile<T>(filePath, fallback);
+    return readJsonFileReadonly<T>(filePath, fallback);
   }
 }
 
@@ -406,14 +415,16 @@ function buildNextServiceData(current: ServiceData, input: ServiceUpdateInput): 
   };
 }
 
-function buildDefaultAdminSettings(): AdminSettings {
-  const siteSettings = getSiteSettingsData();
-
+function buildDefaultAdminSettingsFromSite(siteSettings: SiteSettingsData): AdminSettings {
   return {
     formRecipientEmail: siteSettings.contact.email || 'contact@islady.ma',
     resendFromEmail: siteSettings.contact.email || 'contact@islady.ma',
     resendFromName: siteSettings.siteName || 'Ice Lady'
   };
+}
+
+function buildDefaultAdminSettings(): AdminSettings {
+  return buildDefaultAdminSettingsFromSite(getSiteSettingsData());
 }
 
 function getLeadSubmissionsPayload(): LeadSubmissionsPayload {
@@ -425,10 +436,15 @@ export function getSiteSettingsData(): SiteSettingsData {
 }
 
 export async function getSiteSettingsDataAsync(): Promise<SiteSettingsData> {
+  const fallback = readJsonFileReadonly<SiteSettingsData>(
+    SITE_SETTINGS_FILE,
+    buildDefaultSiteSettings()
+  );
+
   return readPersistentJson<SiteSettingsData>(
     BLOB_KEYS.siteSettings,
     SITE_SETTINGS_FILE,
-    getSiteSettingsData()
+    fallback
   );
 }
 
@@ -455,7 +471,12 @@ export function getServicesData(): ServicesPayload {
 }
 
 export async function getServicesDataAsync(): Promise<ServicesPayload> {
-  return readPersistentJson<ServicesPayload>(BLOB_KEYS.services, SERVICES_FILE, getServicesData());
+  const fallback = readJsonFileReadonly<ServicesPayload>(
+    SERVICES_FILE,
+    buildDefaultServicesPayload()
+  );
+
+  return readPersistentJson<ServicesPayload>(BLOB_KEYS.services, SERVICES_FILE, fallback);
 }
 
 export function updateServiceData(slug: string, input: ServiceUpdateInput): ServiceData | null {
@@ -510,10 +531,16 @@ export function getAdminSettings(): AdminSettings {
 }
 
 export async function getAdminSettingsAsync(): Promise<AdminSettings> {
+  const siteSettings = await getSiteSettingsDataAsync();
+  const fallback = readJsonFileReadonly<AdminSettings>(
+    ADMIN_SETTINGS_FILE,
+    buildDefaultAdminSettingsFromSite(siteSettings)
+  );
+
   return readPersistentJson<AdminSettings>(
     BLOB_KEYS.adminSettings,
     ADMIN_SETTINGS_FILE,
-    getAdminSettings()
+    fallback
   );
 }
 
@@ -540,10 +567,15 @@ export async function updateAdminSettingsAsync(input: AdminSettings): Promise<Ad
 }
 
 async function getLeadSubmissionsPayloadAsync(): Promise<LeadSubmissionsPayload> {
+  const fallback = readJsonFileReadonly<LeadSubmissionsPayload>(
+    LEAD_SUBMISSIONS_FILE,
+    buildDefaultSubmissions()
+  );
+
   return readPersistentJson<LeadSubmissionsPayload>(
     BLOB_KEYS.leadSubmissions,
     LEAD_SUBMISSIONS_FILE,
-    getLeadSubmissionsPayload()
+    fallback
   );
 }
 
