@@ -13,3 +13,5 @@ Icelady Old Page/
 
 # Local Netlify folder
 .netlify
+
+deno.lock
