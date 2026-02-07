@@ -1,0 +1,210 @@
+{
+  "categories": [
+    {
+      "id": "cryotherapy",
+      "title": "Cryotherapy Programs",
+      "description": "Body contouring and anti-aging protocols anchored in controlled cold therapy."
+    },
+    {
+      "id": "skin-and-brows",
+      "title": "Skin & Brows",
+      "description": "High-precision treatments for texture, tone, and facial definition."
+    },
+    {
+      "id": "beauty-enhancement",
+      "title": "Beauty Enhancement",
+      "description": "Curated finishing treatments for subtle, elegant refinement."
+    }
+  ],
+  "services": [
+    {
+      "slug": "chromo",
+      "path": "/en/products/chromo",
+      "name": "Chromotherapy in Marrakech | Anti-Cellulite",
+      "category": "Body Toning",
+      "tagline": "Chromothérapie",
+      "summary": "Chromotherapy in Marrakech works using the spectrum of visible light. Each color corresponds to a wavelength for treating specific problems of the body and mind. Chromotherapy contributes to treatments on the physical body: Old or new stretch marks Grease Looseness Strengthening Muscle problems Cellulites Water retention Spider veins Scars",
+      "benefits": [
+        "Consultation-led protocol tailored to your goals",
+        "Clinic-grade technology and hygiene standards",
+        "Personalized follow-up with visible milestone tracking"
+      ],
+      "duration": "45-60 min",
+      "priceNote": "Price shared during consultation",
+      "featured": false,
+      "heroImage": "/images/services/chromo.jpg",
+      "galleryImages": [
+        "/images/services/chromo.jpg",
+        "/images/services/chromo-detail-1.jpg",
+        "/images/services/chromo-detail-2.jpg"
+      ],
+      "needsCopy": false,
+      "seo": {
+        "title": "Chromotherapy in Marrakech | Anti-Cellulite",
+        "description": "Chromotherapy in Marrakech works using the spectrum of visible light. Each color corresponds to a wavelength for treating specific problems of the body and mind. Chromotherapy contributes to treatments on the physical body: Old or new stretch marks Grease Looseness Strengthening Muscle problems Cellulites Water retention Spider veins Scars"
+      }
+    },
+    {
+      "slug": "extension-de-cils-en-soie-et-kashmir",
+      "path": "/en/products/extension-de-cils-en-soie-et-kashmir",
+      "name": "Extension de cils en Soie et Kashmir | MARRAKECH",
+      "category": "Eyes",
+      "tagline": "Silk and Kashmir eyelash extensions",
+      "summary": "Silk eyelash extensions Real silk eyelash extension, incomparable softness and lightness.Silk eyelashes have a better grip on your natural eyelashes because they are less heavy than acrylic or synthetic eyelashes The composition of silk eyelashes At Ice Lady, silk eyelashes are made of silky fibers which provide optimu",
+      "benefits": [
+        "Consultation-led protocol tailored to your goals",
+        "Clinic-grade technology and hygiene standards",
+        "Personalized follow-up with visible milestone tracking"
+      ],
+      "duration": "45-60 min",
+      "priceNote": "Price shared during consultation",
+      "featured": false,
+      "heroImage": "/images/services/extensions.jpg",
+      "galleryImages": [
+        "/images/services/extensions.jpg",
+        "/images/services/extensions-detail-1.jpg",
+        "/images/services/extensions-detail-2.jpg"
+      ],
+      "needsCopy": false,
+      "seo": {
+        "title": "Extension de cils en Soie et Kashmir | MARRAKECH",
+        "description": "Silk eyelash extensions Real silk eyelash extension, incomparable softness and lightness.Silk eyelashes have a better grip on your natural eyelashes because they are less heavy than acrylic or synthetic eyelashes The composition of silk eyelashes At Ice Lady, silk eyelashes are made of silky fibers which provide optimu"
+      }
+    },
+    {
+      "slug": "micro-needling",
+      "path": "/en/products/micro-needling",
+      "name": "Micro-Needling in Marrakech",
+      "category": "Skin & Brows",
+      "tagline": "Micro-Needling",
+      "summary": "The Micro-Needling treatment at Ice Lady in Marrakech is a very effective non-invasive treatment for treating skin aging, slowing the effects of aging and also for correcting certain imperfections such as acne and stretch marks.",
+      "benefits": [
+        "Consultation-led protocol tailored to your goals",
+        "Clinic-grade technology and hygiene standards",
+        "Personalized follow-up with visible milestone tracking"
+      ],
+      "duration": "45-60 min",
+      "priceNote": "Price shared during consultation",
+      "featured": false,
+      "heroImage": "/images/services/micro-needling.jpg",
+      "galleryImages": [
+        "/images/services/micro-needling.jpg",
+        "/images/services/micro-needling-detail-1.jpg",
+        "/images/services/micro-needling-detail-2.jpg"
+      ],
+      "needsCopy": false,
+      "seo": {
+        "title": "Micro-Needling in Marrakech",
+        "description": "The Micro-Needling treatment at Ice Lady in Marrakech is a very effective non-invasive treatment for treating skin aging, slowing the effects of aging and also for correcting certain imperfections such as acne and stretch marks."
+      }
+    },
+    {
+      "slug": "microblading",
+      "path": "/en/products/microblading",
+      "name": "MicroBlading in Marrakech | Certified center",
+      "category": "Skin & Brows",
+      "tagline": "MicroBlading",
+      "summary": "What is Microblading? Microblading is above all an art and a type of eyebrow architecture. It's about creating the best shape for each face - a totally tailored approach for each client. How is Microblading of the eyebrows different from tattooing of the eyebrows? Microblading, unlike tattooing, is not in the deep laye",
+      "benefits": [
+        "Bespoke brow architecture for your face shape",
+        "Refined pigment technique with natural finish",
+        "Aftercare support for stable, elegant results"
+      ],
+      "duration": "45-60 min",
+      "priceNote": "Price shared during consultation",
+      "featured": false,
+      "heroImage": "/images/services/microblading.jpg",
+      "galleryImages": [
+        "/images/services/microblading.jpg",
+        "/images/services/microblading-detail-1.jpg",
+        "/images/services/microblading-detail-2.jpg"
+      ],
+      "needsCopy": false,
+      "seo": {
+        "title": "MicroBlading in Marrakech | Certified center",
+        "description": "What is Microblading? Microblading is above all an art and a type of eyebrow architecture. It's about creating the best shape for each face - a totally tailored approach for each client. How is Microblading of the eyebrows different from tattooing of the eyebrows? Microblading, unlike tattooing, is not in the deep laye"
+      }
+    },
+    {
+      "slug": "peeling-naturel-aux-algues",
+      "path": "/en/products/peeling-naturel-aux-algues",
+      "name": "Natural seaweed peeling in Marrakech",
+      "category": "Skin Renewal",
+      "tagline": "Natural seaweed peel",
+      "summary": "Eliminates dead cells, tightens pores, soothes irritation, cleanses and bursts, mattifies the skin. Reduces dark circles under the eyes and gives the skin a plumped complexion. It helps reduce inflammation and improves local blood circulation. Specially formulated to help chronic sun damaged skin by reducing wrinkles.",
+      "benefits": [
+        "Consultation-led protocol tailored to your goals",
+        "Clinic-grade technology and hygiene standards",
+        "Personalized follow-up with visible milestone tracking"
+      ],
+      "duration": "45-60 min",
+      "priceNote": "Price shared during consultation",
+      "featured": false,
+      "heroImage": "/images/services/peeling.jpg",
+      "galleryImages": [
+        "/images/services/peeling.jpg",
+        "/images/services/peeling-detail-1.jpg",
+        "/images/services/peeling-detail-2.jpg"
+      ],
+      "needsCopy": false,
+      "seo": {
+        "title": "Natural seaweed peeling in Marrakech",
+        "description": "Eliminates dead cells, tightens pores, soothes irritation, cleanses and bursts, mattifies the skin. Reduces dark circles under the eyes and gives the skin a plumped complexion. It helps reduce inflammation and improves local blood circulation. Specially formulated to help chronic sun damaged skin by reducing wrinkles."
+      }
+    },
+    {
+      "slug": "therapiefaciale",
+      "path": "/en/products/therapiefaciale",
+      "name": "Programme Anti-Age (Cryothérapie) | Marrakech",
+      "category": "Cryotherapy",
+      "tagline": "Programme Anti-Age (Cryothérapie)",
+      "summary": "Our Anti-Aging Cryotherapy program is a revolutionary treatment in Marrakech that does not require suction, an alternative to liposuction. It has several effects on the body: Speeds up blood circulation, followed by the elimination of toxins. Elimination of localized cellulite. Decreases in fat cells. Lymphatic drainage. Muscle toning and firming.",
+      "benefits": [
+        "Consultation-led protocol tailored to your goals",
+        "Clinic-grade technology and hygiene standards",
+        "Personalized follow-up with visible milestone tracking"
+      ],
+      "duration": "45-60 min",
+      "priceNote": "Price shared during consultation",
+      "featured": true,
+      "heroImage": "/images/services/anti-age.jpg",
+      "galleryImages": [
+        "/images/services/anti-age.jpg",
+        "/images/services/anti-age-detail-1.jpg",
+        "/images/services/anti-age-detail-2.jpg"
+      ],
+      "needsCopy": false,
+      "seo": {
+        "title": "Programme Anti-Age (Cryothérapie) | Marrakech",
+        "description": "Our Anti-Aging Cryotherapy program is a revolutionary treatment in Marrakech that does not require suction, an alternative to liposuction. It has several effects on the body: Speeds up blood circulation, followed by the elimination of toxins. Elimination of localized cellulite. Decreases in fat cells. Lymphatic drainage. Muscle toning and firming."
+      }
+    },
+    {
+      "slug": "therapiefroid",
+      "path": "/en/products/therapiefroid",
+      "name": "Slimming program (Cryotherapy) | Marrakech",
+      "category": "Cryotherapy",
+      "tagline": "Slimming program (Cryotherapy)",
+      "summary": "Our Cryotherapy slimming program is a revolutionary treatment in Marrakech that does not require aspiration, an alternative to liposuction. It has several effects on the body: -Accelerates blood circulation, followed by elimination of toxins and high calorie consumption. -Elimination of localized cellulite. Decreases in fat cells. -Lymphatic drainage. - Muscle toning and firming. -Remodeling and slimming of the body",
+      "benefits": [
+        "Non-invasive protocol led by certified practitioners",
+        "Structured sessions tailored to your silhouette goals",
+        "Comfort-focused treatment with visible progression tracking"
+      ],
+      "duration": "45-60 min",
+      "priceNote": "Price shared during consultation",
+      "featured": true,
+      "heroImage": "/images/services/slimming.jpg",
+      "galleryImages": [
+        "/images/services/slimming.jpg",
+        "/images/services/slimming-detail-1.jpg",
+        "/images/services/slimming-detail-2.jpg"
+      ],
+      "needsCopy": false,
+      "seo": {
+        "title": "Slimming program (Cryotherapy) | Marrakech",
+        "description": "Our Cryotherapy slimming program is a revolutionary treatment in Marrakech that does not require aspiration, an alternative to liposuction. It has several effects on the body: -Accelerates blood circulation, followed by elimination of toxins and high calorie consumption. -Elimination of localized cellulite. Decreases i"
+      }
+    }
+  ]
+}

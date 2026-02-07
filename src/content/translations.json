@@ -1,0 +1,47 @@
+{
+  "fr": {
+    "brandTagline": "Cryothérapie & soins esthétiques premium à Marrakech",
+    "heroEyebrow": "Clinique Premium Marrakech",
+    "heroTitle": "Des résultats sculptés grâce à la cryothérapie de précision | Ice Lady Marrakech",
+    "heroSubtitle": "Parcours personnalisés et confidentiels, alliant rigueur clinique et soin haut de gamme pour la silhouette, la peau et la confiance.",
+    "heroPrimaryCta": "Réserver votre consultation",
+    "heroSecondaryCta": "Découvrir les soins",
+    "cryoTitle": "La cryothérapie, notre expertise signature",
+    "cryoDescription": "Les protocoles Ice Lady combinent précision thermique, supervision experte et suivi des progrès pour des résultats visibles et naturels.",
+    "faqTitle": "Questions fréquentes",
+    "mapTitle": "Clinique Ice Lady Marrakech",
+    "contactTitle": "Votre rendez-vous chez Ice Lady Marrakech",
+    "contactIntro": "Parlez avec notre équipe pour définir vos objectifs et confirmer le protocole le plus adapté à votre profil.",
+    "paymentNote": "Aucun paiement en ligne. La confirmation et les modalités de règlement sont traitées directement avec la clinique."
+  },
+  "en": {
+    "brandTagline": "Cryotherapy & premium aesthetic treatments in Marrakech",
+    "heroEyebrow": "Marrakech Premium Clinic",
+    "heroTitle": "Sculpted Results Through Precision Cryotherapy | Ice Lady Marrakech",
+    "heroSubtitle": "Private, personalized treatment journeys combining clinical rigor and luxury care for body contouring, skin renewal, and confidence.",
+    "heroPrimaryCta": "Book Your Consultation",
+    "heroSecondaryCta": "Explore Treatments",
+    "cryoTitle": "Cryotherapy Is Our Signature Expertise",
+    "cryoDescription": "Ice Lady protocols combine thermal precision, practitioner supervision, and progress tracking for visible and natural-looking outcomes.",
+    "faqTitle": "Frequently Asked Questions",
+    "mapTitle": "Ice Lady Marrakech Clinic",
+    "contactTitle": "Your Appointment at Ice Lady Marrakech",
+    "contactIntro": "Speak with our team to define your goals and validate the protocol best suited to your needs.",
+    "paymentNote": "No online payments. Confirmation and payment details are handled directly with the clinic."
+  },
+  "ar": {
+    "brandTagline": "العلاج بالتبريد والعناية الجمالية الفاخرة في مراكش",
+    "heroEyebrow": "عيادة فاخرة في مراكش",
+    "heroTitle": "نتائج منحوتة عبر العلاج بالتبريد الدقيق | آيس ليدي مراكش",
+    "heroSubtitle": "رحلات علاجية خاصة ومصممة حسب الحالة تجمع بين الانضباط الطبي والرعاية الفاخرة للجسم والبشرة والثقة بالنفس.",
+    "heroPrimaryCta": "احجز استشارتك",
+    "heroSecondaryCta": "اكتشف العلاجات",
+    "cryoTitle": "العلاج بالتبريد هو خبرتنا المميزة",
+    "cryoDescription": "تعتمد بروتوكولات آيس ليدي على دقة حرارية وإشراف مختص ومتابعة مستمرة لتحقيق نتائج واضحة وطبيعية.",
+    "faqTitle": "الأسئلة الشائعة",
+    "mapTitle": "عيادة آيس ليدي مراكش",
+    "contactTitle": "موعدك في آيس ليدي مراكش",
+    "contactIntro": "تواصل مع فريقنا لتحديد أهدافك واعتماد البروتوكول الأنسب لحالتك.",
+    "paymentNote": "لا يوجد دفع إلكتروني. يتم تأكيد الموعد والتفاصيل المالية مباشرة مع العيادة."
+  }
+}

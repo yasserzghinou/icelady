@@ -1,0 +1,119 @@
+{
+  "pages": [
+    {
+      "path": "/en/cart",
+      "title": "Your Shopping Cart",
+      "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+      "heading": "Your cart",
+      "intro": "This page is being refreshed to match our new premium clinic experience while preserving SEO continuity.",
+      "sections": [
+        {
+          "title": "Why This Page Matters",
+          "body": "We preserved this URL to retain ranking equity and existing customer navigation habits."
+        },
+        {
+          "title": "Next Update",
+          "body": "Finalize localized copy and treatment specifics once medical and brand review is complete."
+        }
+      ],
+      "cta": {
+        "label": "Book a consultation",
+        "href": "/en/pages/contact"
+      },
+      "template": "default",
+      "needsCopy": true
+    },
+    {
+      "path": "/en/pages/cryotherapie",
+      "title": "Cryothérapie",
+      "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+      "heading": "Congelez la graisse indésirable",
+      "intro": "This page is being refreshed to match our new premium clinic experience while preserving SEO continuity.",
+      "sections": [
+        {
+          "title": "Why This Page Matters",
+          "body": "We preserved this URL to retain ranking equity and existing customer navigation habits."
+        },
+        {
+          "title": "Next Update",
+          "body": "Finalize localized copy and treatment specifics once medical and brand review is complete."
+        }
+      ],
+      "cta": {
+        "label": "Book a consultation",
+        "href": "/en/pages/contact"
+      },
+      "template": "default",
+      "needsCopy": true
+    },
+    {
+      "path": "/en/pages/microblading-ice-lady-marrakech",
+      "title": "MicroBlading",
+      "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+      "heading": "Sois BelleSois Naturelle",
+      "intro": "This page is being refreshed to match our new premium clinic experience while preserving SEO continuity.",
+      "sections": [
+        {
+          "title": "Why This Page Matters",
+          "body": "We preserved this URL to retain ranking equity and existing customer navigation habits."
+        },
+        {
+          "title": "Next Update",
+          "body": "Finalize localized copy and treatment specifics once medical and brand review is complete."
+        }
+      ],
+      "cta": {
+        "label": "Book a consultation",
+        "href": "/en/pages/contact"
+      },
+      "template": "default",
+      "needsCopy": true
+    },
+    {
+      "path": "/en/pages/nos-resultats",
+      "title": "Nos Résultats",
+      "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+      "heading": "Nous sommes fier des résultats de nos clients, pour voir tout les resultats suivez notre compte instagram @iceladymarrakech",
+      "intro": "This page is being refreshed to match our new premium clinic experience while preserving SEO continuity.",
+      "sections": [
+        {
+          "title": "Why This Page Matters",
+          "body": "We preserved this URL to retain ranking equity and existing customer navigation habits."
+        },
+        {
+          "title": "Next Update",
+          "body": "Finalize localized copy and treatment specifics once medical and brand review is complete."
+        }
+      ],
+      "cta": {
+        "label": "Book a consultation",
+        "href": "/en/pages/contact"
+      },
+      "template": "results",
+      "needsCopy": true
+    },
+    {
+      "path": "/en/search",
+      "title": "Search",
+      "description": "Ice Lady est un centre thérapeutique avant-gardiste, expert dans les thérapies d'amincissement et l'esthétique par le froid dites cryothérapie et l'un des seuls centres au Maroc certifié en MicroBlading avec une équipe de Master Artists. On vous invite a venir visiter notre centre à Marrakech pour plus d'info.",
+      "heading": "Search",
+      "intro": "Ice Lady est un centre thérapeutique avant-gardiste, expert dans les thérapies d'amincissement et l'esthétique par le froid dites cryothérapie et l'un des seuls centres au Maroc certifié en MicroBlading avec une équipe de Master Artists. On vous invite a venir visiter notre centre à Marrakech pour plus d'info.",
+      "sections": [
+        {
+          "title": "Why This Page Matters",
+          "body": "We preserved this URL to retain ranking equity and existing customer navigation habits."
+        },
+        {
+          "title": "Next Update",
+          "body": "Finalize localized copy and treatment specifics once medical and brand review is complete."
+        }
+      ],
+      "cta": {
+        "label": "Book a consultation",
+        "href": "/en/pages/contact"
+      },
+      "template": "default",
+      "needsCopy": true
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "brand": "Ice Lady",
+  "siteName": "Ice Lady Marrakech",
+  "baseUrl": "https://islady.ma",
+  "locale": "en-MA",
+  "tagline": "Cryotherapy & Advanced Beauty Rituals in Marrakech",
+  "description": "Ice Lady is a premium Marrakech clinic specializing in cryotherapy-led body and skin programs with personalized treatment plans.",
+  "hero": {
+    "eyebrow": "Marrakech Premium Clinic",
+    "title": "Sculpted Results Through Precision Cryotherapy",
+    "subtitle": "Private, consultation-led treatment journeys combining clinical rigor and luxury care for body contouring, skin renewal, and confidence.",
+    "image": "/images/hero-main.jpg",
+    "primaryCta": {
+      "label": "Book Your Consultation",
+      "href": "/en/pages/contact"
+    },
+    "secondaryCta": {
+      "label": "Explore Services",
+      "href": "/en/collections/all"
+    }
+  },
+  "cryotherapy": {
+    "title": "Cryotherapy Is Our Signature Expertise",
+    "description": "Ice Lady protocols combine thermal precision, practitioner supervision, and progress tracking to deliver visible yet natural outcomes.",
+    "image": "/images/cryotherapy-feature.png",
+    "bullets": [
+      "Non-invasive alternative aligned with busy lifestyles",
+      "Treatment plans adapted to your physiology and goals",
+      "Premium hygiene, comfort, and post-session guidance"
+    ]
+  },
+  "contact": {
+    "phone": "+212653870216",
+    "whatsapp": "+212653870216",
+    "email": "youssramellas@gmail.com",
+    "bookingLink": "/en/pages/contact",
+    "address": "Immeuble STAVROULA rue Av. 4eme D.M.M Plateau N 13, Marrakesh 40010",
+    "mapProfileUrl": "https://maps.app.goo.gl/YVsfcBbGLEgMMNwq5",
+    "mapEmbedUrl": "https://maps.google.com/maps?q=Immeuble%20STAVROULA%20rue%20Av.%204eme%20D.M.M%20Plateau%20N%2013,%20Marrakesh%2040010&t=&z=15&ie=UTF8&iwloc=&output=embed",
+    "hours": [
+      "Monday - Friday: 10:00 - 20:00",
+      "Saturday: 10:00 - 17:00",
+      "Sunday: By appointment"
+    ],
+    "needsCopy": true
+  },
+  "socials": [
+    {
+      "label": "Instagram",
+      "href": "https://www.instagram.com/",
+      "needsCopy": true
+    },
+    {
+      "label": "Facebook",
+      "href": "https://www.facebook.com/",
+      "needsCopy": true
+    }
+  ],
+  "testimonials": [
+    {
+      "quote": "Ice Lady gives the level of detail and follow-up I expect from a premium clinic. The care plan felt truly personal.",
+      "name": "Clinic Guest",
+      "role": "Marrakech",
+      "needsCopy": true
+    },
+    {
+      "quote": "The cryotherapy protocol was explained clearly and monitored closely. I appreciated the medical-grade discipline.",
+      "name": "Returning Client",
+      "role": "Body Program",
+      "needsCopy": true
+    }
+  ],
+  "faq": [
+    {
+      "question": "Do you accept online payments?",
+      "answer": "No. Appointments are confirmed directly with the clinic team.",
+      "needsCopy": false
+    },
+    {
+      "question": "Is cryotherapy suitable for everyone?",
+      "answer": "Suitability is validated during your consultation before any protocol begins.",
+      "needsCopy": false
+    },
+    {
+      "question": "How many sessions will I need?",
+      "answer": "Session count depends on your goals, treatment type, and practitioner recommendations after assessment.",
+      "needsCopy": false
+    }
+  ]
+}

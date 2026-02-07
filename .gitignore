@@ -1,0 +1,12 @@
+node_modules
+.next
+.next*
+out
+coverage
+.DS_Store
+.env
+*.log
+screenlog.0
+tsconfig.tsbuildinfo
+data/lead-submissions.json
+Icelady Old Page/

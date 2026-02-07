@@ -1,0 +1,602 @@
+[
+  {
+    "path": "/en",
+    "type": "home",
+    "slug": "en",
+    "title": "Ice Lady | Cryothérapie & MicroBlading à Marrakech |",
+    "description": "Ice Lady is an avant-garde therapeutic center, expert in slimming therapies and aesthetics by the cold called cryotherapy and one of the only centers in Morocco certified in MicroBlading with a team of Master Artists. We invite you to come and visit our center in Marrakech for more info.",
+    "canonical": "https://islady.ma/en",
+    "sourceUrl": "https://icelady.ma/en",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/blogs/news",
+    "type": "blogIndex",
+    "slug": "news",
+    "title": "News",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/en/blogs/news",
+    "sourceUrl": "https://icelady.ma/en/blogs/news",
+    "needsCopy": true
+  },
+  {
+    "path": "/en/blogs/news/clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "type": "blogPost",
+    "slug": "clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "title": "Clinique de cryolipolyse à Marrakech | Traitement de perte de poids av",
+    "description": "Notre clinique de cryolipolyse à Marrakech propose une technologie avancée et des services de qualité pour aider les patients à atteindre leurs objectifs de perte de poids de manière rapide et sûre. La cryolipolyse est une méthode non invasive qui utilise le froid pour cibler et détruire les cellules graisseuses.",
+    "canonical": "https://islady.ma/en/blogs/news/clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "sourceUrl": "https://icelady.ma/en/blogs/news/clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/blogs/news/meilleures-methodes-de-perte-de-poids-en-2023",
+    "type": "blogPost",
+    "slug": "meilleures-methodes-de-perte-de-poids-en-2023",
+    "title": "Meilleures méthodes de perte de poids en 2023: Conseils et astuces pou",
+    "description": "Meilleures méthodes de perte de poids en 2023 à Marrakech Si vous êtes à la recherche de moyens efficaces pour perdre du poids en 2023 à Marrakech, vous êtes au bon endroit! Dans cet article, nous vous proposons une sélection des meilleures méthodes de perte de poids!",
+    "canonical": "https://islady.ma/en/blogs/news/meilleures-methodes-de-perte-de-poids-en-2023",
+    "sourceUrl": "https://icelady.ma/en/blogs/news/meilleures-methodes-de-perte-de-poids-en-2023",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/blogs/news/prendre_controle_de_votre_poids",
+    "type": "blogPost",
+    "slug": "prendre_controle_de_votre_poids",
+    "title": "Controlez votre poids et Augmentez la confiance en vous",
+    "description": "Dans cet article, nous discutons de l'importance de prendre le contrôle de son poids pour améliorer la confiance en soi et le bien-être général. Nous mettons en lumière l'impact négatif que le poids excessif peut avoir sur l'estime de soi et les effets positifs de la perte de poids sur la santé physique et mentale.",
+    "canonical": "https://islady.ma/en/blogs/news/prendre_controle_de_votre_poids",
+    "sourceUrl": "https://icelady.ma/en/blogs/news/prendre_controle_de_votre_poids",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/blogs/news/trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "type": "blogPost",
+    "slug": "trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "title": "Trouvez le bonheur en prenant soin de votre corps, en méditant régulièrement et en vous abandonnant à la vie",
+    "description": "Prendre soin de notre corps, méditer régulièrement et nous abandonner au cours de la vie peuvent tous améliorer notre bonheur et notre bien-être. En prenant soin de notre corps, nous pouvons nous sentir plus énergisés, concentrés et centrés. La méditation peut nous aider à nous sentir plus ancrés et présents.",
+    "canonical": "https://islady.ma/en/blogs/news/trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "sourceUrl": "https://icelady.ma/en/blogs/news/trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/cart",
+    "type": "utility",
+    "slug": "cart",
+    "title": "Your Shopping Cart",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/en/cart",
+    "sourceUrl": "https://icelady.ma/en/cart",
+    "needsCopy": true
+  },
+  {
+    "path": "/en/collections/all",
+    "type": "servicesIndex",
+    "slug": "all",
+    "title": "Products",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/en/collections/all",
+    "sourceUrl": "https://icelady.ma/en/collections/all",
+    "needsCopy": true
+  },
+  {
+    "path": "/en/pages/contact",
+    "type": "contact",
+    "slug": "contact",
+    "title": "Votre Rendez vous chez Ice Lady Marrakech",
+    "description": "Ice Lady Marrakech vous propose une consultation gratuite par téléphone sans compromis. Appelez nous au +212653870216",
+    "canonical": "https://islady.ma/en/pages/contact",
+    "sourceUrl": "https://icelady.ma/en/pages/contact",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/pages/cryotherapie",
+    "type": "generic",
+    "slug": "cryotherapie",
+    "title": "Cryothérapie",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/en/pages/cryotherapie",
+    "sourceUrl": "https://icelady.ma/en/pages/cryotherapie",
+    "needsCopy": true
+  },
+  {
+    "path": "/en/pages/microblading-ice-lady-marrakech",
+    "type": "generic",
+    "slug": "microblading-ice-lady-marrakech",
+    "title": "MicroBlading",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/en/pages/microblading-ice-lady-marrakech",
+    "sourceUrl": "https://icelady.ma/en/pages/microblading-ice-lady-marrakech",
+    "needsCopy": true
+  },
+  {
+    "path": "/en/pages/nos-resultats",
+    "type": "generic",
+    "slug": "nos-resultats",
+    "title": "Nos Résultats",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/en/pages/nos-resultats",
+    "sourceUrl": "https://icelady.ma/en/pages/nos-resultats",
+    "needsCopy": true
+  },
+  {
+    "path": "/en/products/chromo",
+    "type": "service",
+    "slug": "chromo",
+    "title": "Chromotherapy in Marrakech | Anti-Cellulite",
+    "description": "Chromotherapy in Marrakech works using the spectrum of visible light. Each color corresponds to a wavelength for treating specific problems of the body and mind. Chromotherapy contributes to treatments on the physical body: Old or new stretch marks Grease Looseness Strengthening Muscle problems Cellulites Water retention Spider veins Scars",
+    "canonical": "https://islady.ma/en/products/chromo",
+    "sourceUrl": "https://icelady.ma/en/products/chromo",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/products/extension-de-cils-en-soie-et-kashmir",
+    "type": "service",
+    "slug": "extension-de-cils-en-soie-et-kashmir",
+    "title": "Extension de cils en Soie et Kashmir | MARRAKECH",
+    "description": "Silk eyelash extensions Real silk eyelash extension, incomparable softness and lightness.Silk eyelashes have a better grip on your natural eyelashes because they are less heavy than acrylic or synthetic eyelashes The composition of silk eyelashes At Ice Lady, silk eyelashes are made of silky fibers which provide optimu",
+    "canonical": "https://islady.ma/en/products/extension-de-cils-en-soie-et-kashmir",
+    "sourceUrl": "https://icelady.ma/en/products/extension-de-cils-en-soie-et-kashmir",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/products/micro-needling",
+    "type": "service",
+    "slug": "micro-needling",
+    "title": "Micro-Needling in Marrakech",
+    "description": "The Micro-Needling treatment at Ice Lady in Marrakech is a very effective non-invasive treatment for treating skin aging, slowing the effects of aging and also for correcting certain imperfections such as acne and stretch marks.",
+    "canonical": "https://islady.ma/en/products/micro-needling",
+    "sourceUrl": "https://icelady.ma/en/products/micro-needling",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/products/microblading",
+    "type": "service",
+    "slug": "microblading",
+    "title": "MicroBlading in Marrakech | Certified center",
+    "description": "What is Microblading? Microblading is above all an art and a type of eyebrow architecture. It's about creating the best shape for each face - a totally tailored approach for each client. How is Microblading of the eyebrows different from tattooing of the eyebrows? Microblading, unlike tattooing, is not in the deep laye",
+    "canonical": "https://islady.ma/en/products/microblading",
+    "sourceUrl": "https://icelady.ma/en/products/microblading",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/products/peeling-naturel-aux-algues",
+    "type": "service",
+    "slug": "peeling-naturel-aux-algues",
+    "title": "Natural seaweed peeling in Marrakech",
+    "description": "Eliminates dead cells, tightens pores, soothes irritation, cleanses and bursts, mattifies the skin. Reduces dark circles under the eyes and gives the skin a plumped complexion. It helps reduce inflammation and improves local blood circulation. Specially formulated to help chronic sun damaged skin by reducing wrinkles.",
+    "canonical": "https://islady.ma/en/products/peeling-naturel-aux-algues",
+    "sourceUrl": "https://icelady.ma/en/products/peeling-naturel-aux-algues",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/products/therapiefaciale",
+    "type": "service",
+    "slug": "therapiefaciale",
+    "title": "Programme Anti-Age (Cryothérapie) | Marrakech",
+    "description": "Our Anti-Aging Cryotherapy program is a revolutionary treatment in Marrakech that does not require suction, an alternative to liposuction. It has several effects on the body: Speeds up blood circulation, followed by the elimination of toxins. Elimination of localized cellulite. Decreases in fat cells. Lymphatic drainage. Muscle toning and firming.",
+    "canonical": "https://islady.ma/en/products/therapiefaciale",
+    "sourceUrl": "https://icelady.ma/en/products/therapiefaciale",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/products/therapiefroid",
+    "type": "service",
+    "slug": "therapiefroid",
+    "title": "Slimming program (Cryotherapy) | Marrakech",
+    "description": "Our Cryotherapy slimming program is a revolutionary treatment in Marrakech that does not require aspiration, an alternative to liposuction. It has several effects on the body: -Accelerates blood circulation, followed by elimination of toxins and high calorie consumption. -Elimination of localized cellulite. Decreases in fat cells. -Lymphatic drainage. - Muscle toning and firming. -Remodeling and slimming of the body",
+    "canonical": "https://islady.ma/en/products/therapiefroid",
+    "sourceUrl": "https://icelady.ma/en/products/therapiefroid",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/search",
+    "type": "utility",
+    "slug": "search",
+    "title": "Search",
+    "description": "Ice Lady est un centre thérapeutique avant-gardiste, expert dans les thérapies d'amincissement et l'esthétique par le froid dites cryothérapie et l'un des seuls centres au Maroc certifié en MicroBlading avec une équipe de Master Artists. On vous invite a venir visiter notre centre à Marrakech pour plus d'info.",
+    "canonical": "https://islady.ma/en/search",
+    "sourceUrl": "https://icelady.ma/en/search",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr",
+    "type": "home",
+    "slug": "en",
+    "title": "Ice Lady | Cryothérapie & MicroBlading à Marrakech |",
+    "description": "Ice Lady is an avant-garde therapeutic center, expert in slimming therapies and aesthetics by the cold called cryotherapy and one of the only centers in Morocco certified in MicroBlading with a team of Master Artists. We invite you to come and visit our center in Marrakech for more info.",
+    "canonical": "https://islady.ma/fr",
+    "sourceUrl": "https://icelady.ma/fr",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/blogs/news",
+    "type": "blogIndex",
+    "slug": "news",
+    "title": "News",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/fr/blogs/news",
+    "sourceUrl": "https://icelady.ma/fr/blogs/news",
+    "needsCopy": true
+  },
+  {
+    "path": "/fr/blogs/news/clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "type": "blogPost",
+    "slug": "clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "title": "Clinique de cryolipolyse à Marrakech | Traitement de perte de poids av",
+    "description": "Notre clinique de cryolipolyse à Marrakech propose une technologie avancée et des services de qualité pour aider les patients à atteindre leurs objectifs de perte de poids de manière rapide et sûre. La cryolipolyse est une méthode non invasive qui utilise le froid pour cibler et détruire les cellules graisseuses.",
+    "canonical": "https://islady.ma/fr/blogs/news/clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "sourceUrl": "https://icelady.ma/fr/blogs/news/clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/blogs/news/meilleures-methodes-de-perte-de-poids-en-2023",
+    "type": "blogPost",
+    "slug": "meilleures-methodes-de-perte-de-poids-en-2023",
+    "title": "Meilleures méthodes de perte de poids en 2023: Conseils et astuces pou",
+    "description": "Meilleures méthodes de perte de poids en 2023 à Marrakech Si vous êtes à la recherche de moyens efficaces pour perdre du poids en 2023 à Marrakech, vous êtes au bon endroit! Dans cet article, nous vous proposons une sélection des meilleures méthodes de perte de poids!",
+    "canonical": "https://islady.ma/fr/blogs/news/meilleures-methodes-de-perte-de-poids-en-2023",
+    "sourceUrl": "https://icelady.ma/fr/blogs/news/meilleures-methodes-de-perte-de-poids-en-2023",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/blogs/news/prendre_controle_de_votre_poids",
+    "type": "blogPost",
+    "slug": "prendre_controle_de_votre_poids",
+    "title": "Controlez votre poids et Augmentez la confiance en vous",
+    "description": "Dans cet article, nous discutons de l'importance de prendre le contrôle de son poids pour améliorer la confiance en soi et le bien-être général. Nous mettons en lumière l'impact négatif que le poids excessif peut avoir sur l'estime de soi et les effets positifs de la perte de poids sur la santé physique et mentale.",
+    "canonical": "https://islady.ma/fr/blogs/news/prendre_controle_de_votre_poids",
+    "sourceUrl": "https://icelady.ma/fr/blogs/news/prendre_controle_de_votre_poids",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/blogs/news/trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "type": "blogPost",
+    "slug": "trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "title": "Trouvez le bonheur en prenant soin de votre corps, en méditant régulièrement et en vous abandonnant à la vie",
+    "description": "Prendre soin de notre corps, méditer régulièrement et nous abandonner au cours de la vie peuvent tous améliorer notre bonheur et notre bien-être. En prenant soin de notre corps, nous pouvons nous sentir plus énergisés, concentrés et centrés. La méditation peut nous aider à nous sentir plus ancrés et présents.",
+    "canonical": "https://islady.ma/fr/blogs/news/trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "sourceUrl": "https://icelady.ma/fr/blogs/news/trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/cart",
+    "type": "utility",
+    "slug": "cart",
+    "title": "Your Shopping Cart",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/fr/cart",
+    "sourceUrl": "https://icelady.ma/fr/cart",
+    "needsCopy": true
+  },
+  {
+    "path": "/fr/collections/all",
+    "type": "servicesIndex",
+    "slug": "all",
+    "title": "Products",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/fr/collections/all",
+    "sourceUrl": "https://icelady.ma/fr/collections/all",
+    "needsCopy": true
+  },
+  {
+    "path": "/fr/pages/contact",
+    "type": "contact",
+    "slug": "contact",
+    "title": "Votre Rendez vous chez Ice Lady Marrakech",
+    "description": "Ice Lady Marrakech vous propose une consultation gratuite par téléphone sans compromis. Appelez nous au +212653870216",
+    "canonical": "https://islady.ma/fr/pages/contact",
+    "sourceUrl": "https://icelady.ma/fr/pages/contact",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/pages/cryotherapie",
+    "type": "generic",
+    "slug": "cryotherapie",
+    "title": "Cryothérapie",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/fr/pages/cryotherapie",
+    "sourceUrl": "https://icelady.ma/fr/pages/cryotherapie",
+    "needsCopy": true
+  },
+  {
+    "path": "/fr/pages/microblading-ice-lady-marrakech",
+    "type": "generic",
+    "slug": "microblading-ice-lady-marrakech",
+    "title": "MicroBlading",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/fr/pages/microblading-ice-lady-marrakech",
+    "sourceUrl": "https://icelady.ma/fr/pages/microblading-ice-lady-marrakech",
+    "needsCopy": true
+  },
+  {
+    "path": "/fr/pages/nos-resultats",
+    "type": "generic",
+    "slug": "nos-resultats",
+    "title": "Nos Résultats",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/fr/pages/nos-resultats",
+    "sourceUrl": "https://icelady.ma/fr/pages/nos-resultats",
+    "needsCopy": true
+  },
+  {
+    "path": "/fr/products/chromo",
+    "type": "service",
+    "slug": "chromo",
+    "title": "Chromotherapy in Marrakech | Anti-Cellulite",
+    "description": "Chromotherapy in Marrakech works using the spectrum of visible light. Each color corresponds to a wavelength for treating specific problems of the body and mind. Chromotherapy contributes to treatments on the physical body: Old or new stretch marks Grease Looseness Strengthening Muscle problems Cellulites Water retention Spider veins Scars",
+    "canonical": "https://islady.ma/fr/products/chromo",
+    "sourceUrl": "https://icelady.ma/fr/products/chromo",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/products/extension-de-cils-en-soie-et-kashmir",
+    "type": "service",
+    "slug": "extension-de-cils-en-soie-et-kashmir",
+    "title": "Extension de cils en Soie et Kashmir | MARRAKECH",
+    "description": "Silk eyelash extensions Real silk eyelash extension, incomparable softness and lightness.Silk eyelashes have a better grip on your natural eyelashes because they are less heavy than acrylic or synthetic eyelashes The composition of silk eyelashes At Ice Lady, silk eyelashes are made of silky fibers which provide optimu",
+    "canonical": "https://islady.ma/fr/products/extension-de-cils-en-soie-et-kashmir",
+    "sourceUrl": "https://icelady.ma/fr/products/extension-de-cils-en-soie-et-kashmir",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/products/micro-needling",
+    "type": "service",
+    "slug": "micro-needling",
+    "title": "Micro-Needling in Marrakech",
+    "description": "The Micro-Needling treatment at Ice Lady in Marrakech is a very effective non-invasive treatment for treating skin aging, slowing the effects of aging and also for correcting certain imperfections such as acne and stretch marks.",
+    "canonical": "https://islady.ma/fr/products/micro-needling",
+    "sourceUrl": "https://icelady.ma/fr/products/micro-needling",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/products/microblading",
+    "type": "service",
+    "slug": "microblading",
+    "title": "MicroBlading in Marrakech | Certified center",
+    "description": "What is Microblading? Microblading is above all an art and a type of eyebrow architecture. It's about creating the best shape for each face - a totally tailored approach for each client. How is Microblading of the eyebrows different from tattooing of the eyebrows? Microblading, unlike tattooing, is not in the deep laye",
+    "canonical": "https://islady.ma/fr/products/microblading",
+    "sourceUrl": "https://icelady.ma/fr/products/microblading",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/products/peeling-naturel-aux-algues",
+    "type": "service",
+    "slug": "peeling-naturel-aux-algues",
+    "title": "Natural seaweed peeling in Marrakech",
+    "description": "Eliminates dead cells, tightens pores, soothes irritation, cleanses and bursts, mattifies the skin. Reduces dark circles under the eyes and gives the skin a plumped complexion. It helps reduce inflammation and improves local blood circulation. Specially formulated to help chronic sun damaged skin by reducing wrinkles.",
+    "canonical": "https://islady.ma/fr/products/peeling-naturel-aux-algues",
+    "sourceUrl": "https://icelady.ma/fr/products/peeling-naturel-aux-algues",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/products/therapiefaciale",
+    "type": "service",
+    "slug": "therapiefaciale",
+    "title": "Programme Anti-Age (Cryothérapie) | Marrakech",
+    "description": "Our Anti-Aging Cryotherapy program is a revolutionary treatment in Marrakech that does not require suction, an alternative to liposuction. It has several effects on the body: Speeds up blood circulation, followed by the elimination of toxins. Elimination of localized cellulite. Decreases in fat cells. Lymphatic drainage. Muscle toning and firming.",
+    "canonical": "https://islady.ma/fr/products/therapiefaciale",
+    "sourceUrl": "https://icelady.ma/fr/products/therapiefaciale",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/products/therapiefroid",
+    "type": "service",
+    "slug": "therapiefroid",
+    "title": "Slimming program (Cryotherapy) | Marrakech",
+    "description": "Our Cryotherapy slimming program is a revolutionary treatment in Marrakech that does not require aspiration, an alternative to liposuction. It has several effects on the body: -Accelerates blood circulation, followed by elimination of toxins and high calorie consumption. -Elimination of localized cellulite. Decreases in fat cells. -Lymphatic drainage. - Muscle toning and firming. -Remodeling and slimming of the body",
+    "canonical": "https://islady.ma/fr/products/therapiefroid",
+    "sourceUrl": "https://icelady.ma/fr/products/therapiefroid",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/search",
+    "type": "utility",
+    "slug": "search",
+    "title": "Search",
+    "description": "Ice Lady est un centre thérapeutique avant-gardiste, expert dans les thérapies d'amincissement et l'esthétique par le froid dites cryothérapie et l'un des seuls centres au Maroc certifié en MicroBlading avec une équipe de Master Artists. On vous invite a venir visiter notre centre à Marrakech pour plus d'info.",
+    "canonical": "https://islady.ma/fr/search",
+    "sourceUrl": "https://icelady.ma/fr/search",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar",
+    "type": "home",
+    "slug": "en",
+    "title": "Ice Lady | Cryothérapie & MicroBlading à Marrakech |",
+    "description": "Ice Lady is an avant-garde therapeutic center, expert in slimming therapies and aesthetics by the cold called cryotherapy and one of the only centers in Morocco certified in MicroBlading with a team of Master Artists. We invite you to come and visit our center in Marrakech for more info.",
+    "canonical": "https://islady.ma/ar",
+    "sourceUrl": "https://icelady.ma/ar",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/blogs/news",
+    "type": "blogIndex",
+    "slug": "news",
+    "title": "News",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/ar/blogs/news",
+    "sourceUrl": "https://icelady.ma/ar/blogs/news",
+    "needsCopy": true
+  },
+  {
+    "path": "/ar/blogs/news/clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "type": "blogPost",
+    "slug": "clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "title": "Clinique de cryolipolyse à Marrakech | Traitement de perte de poids av",
+    "description": "Notre clinique de cryolipolyse à Marrakech propose une technologie avancée et des services de qualité pour aider les patients à atteindre leurs objectifs de perte de poids de manière rapide et sûre. La cryolipolyse est une méthode non invasive qui utilise le froid pour cibler et détruire les cellules graisseuses.",
+    "canonical": "https://islady.ma/ar/blogs/news/clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "sourceUrl": "https://icelady.ma/ar/blogs/news/clinique-de-cryolipolyse-a-marrakech-traitement-de-perte-de-poids-avance",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/blogs/news/meilleures-methodes-de-perte-de-poids-en-2023",
+    "type": "blogPost",
+    "slug": "meilleures-methodes-de-perte-de-poids-en-2023",
+    "title": "Meilleures méthodes de perte de poids en 2023: Conseils et astuces pou",
+    "description": "Meilleures méthodes de perte de poids en 2023 à Marrakech Si vous êtes à la recherche de moyens efficaces pour perdre du poids en 2023 à Marrakech, vous êtes au bon endroit! Dans cet article, nous vous proposons une sélection des meilleures méthodes de perte de poids!",
+    "canonical": "https://islady.ma/ar/blogs/news/meilleures-methodes-de-perte-de-poids-en-2023",
+    "sourceUrl": "https://icelady.ma/ar/blogs/news/meilleures-methodes-de-perte-de-poids-en-2023",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/blogs/news/prendre_controle_de_votre_poids",
+    "type": "blogPost",
+    "slug": "prendre_controle_de_votre_poids",
+    "title": "Controlez votre poids et Augmentez la confiance en vous",
+    "description": "Dans cet article, nous discutons de l'importance de prendre le contrôle de son poids pour améliorer la confiance en soi et le bien-être général. Nous mettons en lumière l'impact négatif que le poids excessif peut avoir sur l'estime de soi et les effets positifs de la perte de poids sur la santé physique et mentale.",
+    "canonical": "https://islady.ma/ar/blogs/news/prendre_controle_de_votre_poids",
+    "sourceUrl": "https://icelady.ma/ar/blogs/news/prendre_controle_de_votre_poids",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/blogs/news/trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "type": "blogPost",
+    "slug": "trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "title": "Trouvez le bonheur en prenant soin de votre corps, en méditant régulièrement et en vous abandonnant à la vie",
+    "description": "Prendre soin de notre corps, méditer régulièrement et nous abandonner au cours de la vie peuvent tous améliorer notre bonheur et notre bien-être. En prenant soin de notre corps, nous pouvons nous sentir plus énergisés, concentrés et centrés. La méditation peut nous aider à nous sentir plus ancrés et présents.",
+    "canonical": "https://islady.ma/ar/blogs/news/trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "sourceUrl": "https://icelady.ma/ar/blogs/news/trouvez_le_bonheur_en_prenant_soin_de_votre_corps_en_meditant",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/cart",
+    "type": "utility",
+    "slug": "cart",
+    "title": "Your Shopping Cart",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/ar/cart",
+    "sourceUrl": "https://icelady.ma/ar/cart",
+    "needsCopy": true
+  },
+  {
+    "path": "/ar/collections/all",
+    "type": "servicesIndex",
+    "slug": "all",
+    "title": "Products",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/ar/collections/all",
+    "sourceUrl": "https://icelady.ma/ar/collections/all",
+    "needsCopy": true
+  },
+  {
+    "path": "/ar/pages/contact",
+    "type": "contact",
+    "slug": "contact",
+    "title": "Votre Rendez vous chez Ice Lady Marrakech",
+    "description": "Ice Lady Marrakech vous propose une consultation gratuite par téléphone sans compromis. Appelez nous au +212653870216",
+    "canonical": "https://islady.ma/ar/pages/contact",
+    "sourceUrl": "https://icelady.ma/ar/pages/contact",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/pages/cryotherapie",
+    "type": "generic",
+    "slug": "cryotherapie",
+    "title": "Cryothérapie",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/ar/pages/cryotherapie",
+    "sourceUrl": "https://icelady.ma/ar/pages/cryotherapie",
+    "needsCopy": true
+  },
+  {
+    "path": "/ar/pages/microblading-ice-lady-marrakech",
+    "type": "generic",
+    "slug": "microblading-ice-lady-marrakech",
+    "title": "MicroBlading",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/ar/pages/microblading-ice-lady-marrakech",
+    "sourceUrl": "https://icelady.ma/ar/pages/microblading-ice-lady-marrakech",
+    "needsCopy": true
+  },
+  {
+    "path": "/ar/pages/nos-resultats",
+    "type": "generic",
+    "slug": "nos-resultats",
+    "title": "Nos Résultats",
+    "description": "Premium cryotherapy and beauty treatments in Marrakech.",
+    "canonical": "https://islady.ma/ar/pages/nos-resultats",
+    "sourceUrl": "https://icelady.ma/ar/pages/nos-resultats",
+    "needsCopy": true
+  },
+  {
+    "path": "/ar/products/chromo",
+    "type": "service",
+    "slug": "chromo",
+    "title": "Chromotherapy in Marrakech | Anti-Cellulite",
+    "description": "Chromotherapy in Marrakech works using the spectrum of visible light. Each color corresponds to a wavelength for treating specific problems of the body and mind. Chromotherapy contributes to treatments on the physical body: Old or new stretch marks Grease Looseness Strengthening Muscle problems Cellulites Water retention Spider veins Scars",
+    "canonical": "https://islady.ma/ar/products/chromo",
+    "sourceUrl": "https://icelady.ma/ar/products/chromo",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/products/extension-de-cils-en-soie-et-kashmir",
+    "type": "service",
+    "slug": "extension-de-cils-en-soie-et-kashmir",
+    "title": "Extension de cils en Soie et Kashmir | MARRAKECH",
+    "description": "Silk eyelash extensions Real silk eyelash extension, incomparable softness and lightness.Silk eyelashes have a better grip on your natural eyelashes because they are less heavy than acrylic or synthetic eyelashes The composition of silk eyelashes At Ice Lady, silk eyelashes are made of silky fibers which provide optimu",
+    "canonical": "https://islady.ma/ar/products/extension-de-cils-en-soie-et-kashmir",
+    "sourceUrl": "https://icelady.ma/ar/products/extension-de-cils-en-soie-et-kashmir",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/products/micro-needling",
+    "type": "service",
+    "slug": "micro-needling",
+    "title": "Micro-Needling in Marrakech",
+    "description": "The Micro-Needling treatment at Ice Lady in Marrakech is a very effective non-invasive treatment for treating skin aging, slowing the effects of aging and also for correcting certain imperfections such as acne and stretch marks.",
+    "canonical": "https://islady.ma/ar/products/micro-needling",
+    "sourceUrl": "https://icelady.ma/ar/products/micro-needling",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/products/microblading",
+    "type": "service",
+    "slug": "microblading",
+    "title": "MicroBlading in Marrakech | Certified center",
+    "description": "What is Microblading? Microblading is above all an art and a type of eyebrow architecture. It's about creating the best shape for each face - a totally tailored approach for each client. How is Microblading of the eyebrows different from tattooing of the eyebrows? Microblading, unlike tattooing, is not in the deep laye",
+    "canonical": "https://islady.ma/ar/products/microblading",
+    "sourceUrl": "https://icelady.ma/ar/products/microblading",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/products/peeling-naturel-aux-algues",
+    "type": "service",
+    "slug": "peeling-naturel-aux-algues",
+    "title": "Natural seaweed peeling in Marrakech",
+    "description": "Eliminates dead cells, tightens pores, soothes irritation, cleanses and bursts, mattifies the skin. Reduces dark circles under the eyes and gives the skin a plumped complexion. It helps reduce inflammation and improves local blood circulation. Specially formulated to help chronic sun damaged skin by reducing wrinkles.",
+    "canonical": "https://islady.ma/ar/products/peeling-naturel-aux-algues",
+    "sourceUrl": "https://icelady.ma/ar/products/peeling-naturel-aux-algues",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/products/therapiefaciale",
+    "type": "service",
+    "slug": "therapiefaciale",
+    "title": "Programme Anti-Age (Cryothérapie) | Marrakech",
+    "description": "Our Anti-Aging Cryotherapy program is a revolutionary treatment in Marrakech that does not require suction, an alternative to liposuction. It has several effects on the body: Speeds up blood circulation, followed by the elimination of toxins. Elimination of localized cellulite. Decreases in fat cells. Lymphatic drainage. Muscle toning and firming.",
+    "canonical": "https://islady.ma/ar/products/therapiefaciale",
+    "sourceUrl": "https://icelady.ma/ar/products/therapiefaciale",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/products/therapiefroid",
+    "type": "service",
+    "slug": "therapiefroid",
+    "title": "Slimming program (Cryotherapy) | Marrakech",
+    "description": "Our Cryotherapy slimming program is a revolutionary treatment in Marrakech that does not require aspiration, an alternative to liposuction. It has several effects on the body: -Accelerates blood circulation, followed by elimination of toxins and high calorie consumption. -Elimination of localized cellulite. Decreases in fat cells. -Lymphatic drainage. - Muscle toning and firming. -Remodeling and slimming of the body",
+    "canonical": "https://islady.ma/ar/products/therapiefroid",
+    "sourceUrl": "https://icelady.ma/ar/products/therapiefroid",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/search",
+    "type": "utility",
+    "slug": "search",
+    "title": "Search",
+    "description": "Ice Lady est un centre thérapeutique avant-gardiste, expert dans les thérapies d'amincissement et l'esthétique par le froid dites cryothérapie et l'un des seuls centres au Maroc certifié en MicroBlading avec une équipe de Master Artists. On vous invite a venir visiter notre centre à Marrakech pour plus d'info.",
+    "canonical": "https://islady.ma/ar/search",
+    "sourceUrl": "https://icelady.ma/ar/search",
+    "needsCopy": false
+  }
+]
