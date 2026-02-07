@@ -10,3 +10,6 @@ screenlog.0
 tsconfig.tsbuildinfo
 data/lead-submissions.json
 Icelady Old Page/
+
+# Local Netlify folder
+.netlify
