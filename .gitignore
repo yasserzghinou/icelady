@@ -4,12 +4,15 @@ node_modules
 out
 coverage
 .DS_Store
-.env
 *.log
 screenlog.0
 tsconfig.tsbuildinfo
 data/lead-submissions.json
 Icelady Old Page/
+
+# Environment files
+.env*
+!.env.example
 
 # Local Netlify folder
 .netlify

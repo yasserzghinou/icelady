@@ -83,7 +83,6 @@ npm run build
 ## Admin Dashboard
 
 - URL: `/admin` (not linked publicly, blocked from robots indexing)
-- Default password: `__REMOVED__`
 - Login is server-side only with:
   - hashed password verification (scrypt)
   - signed `HttpOnly` admin session cookie
@@ -115,6 +114,7 @@ npm run build
 
 - Set a strong `ADMIN_SESSION_SECRET`.
 - Replace `ADMIN_PASSWORD_SALT` and `ADMIN_PASSWORD_HASH` with your own hash pair.
+- Never commit real credentials or plaintext admin passwords to git.
 
 ## SEO Preservation Strategy
 

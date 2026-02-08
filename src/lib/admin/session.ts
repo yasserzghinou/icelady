@@ -3,7 +3,7 @@ const encoder = new TextEncoder();
 export const ADMIN_SESSION_COOKIE = 'icelady_admin_session';
 
 const SESSION_DURATION_SECONDS = 60 * 60 * 12;
-const DEFAULT_SESSION_SECRET = '__REMOVED__';
+let devSessionSecret: string | null = null;
 
 type SessionPayload = {
   sub: 'admin';
@@ -58,7 +58,22 @@ function base64UrlToText(value: string): string {
 }
 
 function getSessionSecret(): string {
-  return process.env.ADMIN_SESSION_SECRET || DEFAULT_SESSION_SECRET;
+  const configured = process.env.ADMIN_SESSION_SECRET?.trim();
+  if (configured) {
+    return configured;
+  }
+
+  if (process.env.NODE_ENV === 'production') {
+    throw new Error('ADMIN_SESSION_SECRET must be configured in production');
+  }
+
+  if (!devSessionSecret) {
+    const bytes = new Uint8Array(32);
+    crypto.getRandomValues(bytes);
+    devSessionSecret = Array.from(bytes, (byte) => byte.toString(16).padStart(2, '0')).join('');
+  }
+
+  return devSessionSecret;
 }
 
 async function hmac(value: string): Promise<string> {
