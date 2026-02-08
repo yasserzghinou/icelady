@@ -114,6 +114,8 @@ npm run build
 
 - Set a strong `ADMIN_SESSION_SECRET`.
 - Replace `ADMIN_PASSWORD_SALT` and `ADMIN_PASSWORD_HASH` with your own hash pair.
+- You can generate a fresh hash pair with:
+  - `npm run admin:hash -- \"<new-password>\"`
 - Never commit real credentials or plaintext admin passwords to git.
 
 ## SEO Preservation Strategy
