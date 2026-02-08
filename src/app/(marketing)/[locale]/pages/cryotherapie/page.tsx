@@ -5,10 +5,12 @@ import type { Metadata } from 'next';
 import { SeoJsonLd } from '@/components/Seo';
 import { ServiceLandingTemplate } from '@/components/landing/ServiceLandingTemplate';
 import { DEFAULT_LOCALE, isLocale, localizePath, type Locale } from '@/lib/i18n';
-import { getCryotherapyPageCopy } from '@/lib/localizedCryotherapyPage';
 import { getLocalizedSiteSettingsAsync } from '@/lib/localizedContent';
+import { getServiceLandingCopyBySlug } from '@/lib/localizedServiceLandingPages';
+import { getLocalizedServicesAsync } from '@/lib/localizedEntities';
 import { buildMetadata } from '@/lib/seo/meta';
 import { faqPageSchema, localBusinessSchema } from '@/lib/seo/schema';
+import { toWhatsAppHref } from '@/lib/whatsapp';
 
 export function generateStaticParams() {
   return [{ locale: 'fr' }, { locale: 'en' }, { locale: 'ar' }];
@@ -16,7 +18,15 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: { params: { locale: string } }): Metadata {
   const locale = isLocale(params.locale) ? (params.locale as Locale) : DEFAULT_LOCALE;
-  const copy = getCryotherapyPageCopy(locale);
+  const copy = getServiceLandingCopyBySlug(locale, 'therapiefroid');
+
+  if (!copy) {
+    return buildMetadata({
+      path: `/${locale}/pages/cryotherapie`,
+      title: 'Cryotherapie | Ice Lady',
+      description: 'Programme cryotherapie premium a Marrakech.'
+    });
+  }
 
   return buildMetadata({
     path: `/${locale}/pages/cryotherapie`,
@@ -33,9 +43,25 @@ export default async function CryotherapyLandingPage({ params }: { params: { loc
   }
 
   const locale = params.locale as Locale;
-  const copy = getCryotherapyPageCopy(locale);
+  const copy = getServiceLandingCopyBySlug(locale, 'therapiefroid');
+  if (!copy) {
+    notFound();
+  }
+
   const settings = await getLocalizedSiteSettingsAsync(locale);
-  const contactPath = localizePath('/en/pages/contact', locale);
+  const service = (await getLocalizedServicesAsync(locale)).find(
+    (item) => item.slug === 'therapiefroid'
+  );
+  const rawContactPath = toWhatsAppHref(
+    settings.contact.whatsapp || settings.contact.phone,
+    locale === 'fr'
+      ? 'Bonjour Ice Lady, je souhaite reserver une consultation cryotherapie.'
+      : locale === 'ar'
+        ? 'مرحبا آيس ليدي، أرغب في حجز استشارة للعلاج بالتبريد.'
+        : 'Hello Ice Lady, I want to book a cryotherapy consultation.'
+  );
+  const contactPath =
+    rawContactPath === '#' ? localizePath('/en/pages/contact', locale) : rawContactPath;
   const servicesPath = localizePath('/en/collections/all', locale);
 
   return (
@@ -79,7 +105,7 @@ export default async function CryotherapyLandingPage({ params }: { params: { loc
           mapProfileUrl: settings.contact.mapProfileUrl,
           hours: settings.contact.hours
         }}
-        heroImage="/images/services/slimming.jpg"
+        heroImage={service?.heroImage || '/images/services/new-Cryo-body.png'}
       />
     </>
   );

@@ -1,15 +1,24 @@
 import Link from 'next/link';
 import clsx from 'clsx';
+import type { ReactNode } from 'react';
 
 interface CTAProps {
   href: string;
-  label: string;
+  label: ReactNode;
   variant?: 'primary' | 'secondary';
   className?: string;
   trackingId?: string;
+  newTab?: boolean;
 }
 
-export function CTA({ href, label, variant = 'primary', className, trackingId }: CTAProps) {
+export function CTA({
+  href,
+  label,
+  variant = 'primary',
+  className,
+  trackingId,
+  newTab = false
+}: CTAProps) {
   return (
     <Link
       href={href}
@@ -21,6 +30,8 @@ export function CTA({ href, label, variant = 'primary', className, trackingId }:
         className
       )}
       data-analytics-id={trackingId}
+      target={newTab ? '_blank' : undefined}
+      rel={newTab ? 'noopener noreferrer' : undefined}
     >
       {label}
     </Link>

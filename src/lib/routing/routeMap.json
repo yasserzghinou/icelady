@@ -170,6 +170,16 @@
     "needsCopy": false
   },
   {
+    "path": "/en/products/pressotherapie",
+    "type": "service",
+    "slug": "pressotherapie",
+    "title": "Pressotherapy in Marrakech | Drainage & Light Legs",
+    "description": "Pressotherapy in Marrakech is a non-invasive sequential compression treatment designed to support lymphatic drainage, reduce heavy-leg sensation, and complement slimming or recovery programs.",
+    "canonical": "https://islady.ma/en/products/pressotherapie",
+    "sourceUrl": "https://icelady.ma/en/products/pressotherapie",
+    "needsCopy": false
+  },
+  {
     "path": "/en/products/therapiefaciale",
     "type": "service",
     "slug": "therapiefaciale",
@@ -187,6 +197,46 @@
     "description": "Our Cryotherapy slimming program is a revolutionary treatment in Marrakech that does not require aspiration, an alternative to liposuction. It has several effects on the body: -Accelerates blood circulation, followed by elimination of toxins and high calorie consumption. -Elimination of localized cellulite. Decreases in fat cells. -Lymphatic drainage. - Muscle toning and firming. -Remodeling and slimming of the body",
     "canonical": "https://islady.ma/en/products/therapiefroid",
     "sourceUrl": "https://icelady.ma/en/products/therapiefroid",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/products/electrostimulation",
+    "type": "service",
+    "slug": "electrostimulation",
+    "title": "Electrostimulation in Marrakech | Body Toning",
+    "description": "Electrostimulation sessions in Marrakech to support muscle tone, firmness, and body contour definition.",
+    "canonical": "https://islady.ma/en/products/electrostimulation",
+    "sourceUrl": "https://icelady.ma/en/products/electrostimulation",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/products/brow-lift",
+    "type": "service",
+    "slug": "brow-lift",
+    "title": "Brow Lift in Marrakech | Structured Brows",
+    "description": "Brow lift sessions in Marrakech for lifted, disciplined, and naturally structured brows.",
+    "canonical": "https://islady.ma/en/products/brow-lift",
+    "sourceUrl": "https://icelady.ma/en/products/brow-lift",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/products/lash-lift",
+    "type": "service",
+    "slug": "lash-lift",
+    "title": "Lash Lift in Marrakech | Natural Curl",
+    "description": "Lash lift sessions in Marrakech to open the eye with a natural and elegant curl.",
+    "canonical": "https://islady.ma/en/products/lash-lift",
+    "sourceUrl": "https://icelady.ma/en/products/lash-lift",
+    "needsCopy": false
+  },
+  {
+    "path": "/en/products/hollywood-skin",
+    "type": "service",
+    "slug": "hollywood-skin",
+    "title": "Hollywood Skin in Marrakech | Signature Glow",
+    "description": "Hollywood Skin signature treatment in Marrakech for immediate radiance and progressive skin-quality improvement.",
+    "canonical": "https://islady.ma/en/products/hollywood-skin",
+    "sourceUrl": "https://icelady.ma/en/products/hollywood-skin",
     "needsCopy": false
   },
   {
@@ -370,6 +420,16 @@
     "needsCopy": false
   },
   {
+    "path": "/fr/products/pressotherapie",
+    "type": "service",
+    "slug": "pressotherapie",
+    "title": "Pressotherapie a Marrakech | Drainage & Jambes legeres",
+    "description": "La pressotherapie a Marrakech est un soin non invasif par compression sequentielle pour accompagner le drainage lymphatique, reduire la sensation de jambes lourdes et soutenir les parcours minceur ou recuperation.",
+    "canonical": "https://islady.ma/fr/products/pressotherapie",
+    "sourceUrl": "https://icelady.ma/fr/products/pressotherapie",
+    "needsCopy": false
+  },
+  {
     "path": "/fr/products/therapiefaciale",
     "type": "service",
     "slug": "therapiefaciale",
@@ -387,6 +447,46 @@
     "description": "Our Cryotherapy slimming program is a revolutionary treatment in Marrakech that does not require aspiration, an alternative to liposuction. It has several effects on the body: -Accelerates blood circulation, followed by elimination of toxins and high calorie consumption. -Elimination of localized cellulite. Decreases in fat cells. -Lymphatic drainage. - Muscle toning and firming. -Remodeling and slimming of the body",
     "canonical": "https://islady.ma/fr/products/therapiefroid",
     "sourceUrl": "https://icelady.ma/fr/products/therapiefroid",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/products/electrostimulation",
+    "type": "service",
+    "slug": "electrostimulation",
+    "title": "Electrostimulation a Marrakech | Tonification corps",
+    "description": "Seances d'electrostimulation a Marrakech pour tonification, fermete et definition de la silhouette.",
+    "canonical": "https://islady.ma/fr/products/electrostimulation",
+    "sourceUrl": "https://icelady.ma/fr/products/electrostimulation",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/products/brow-lift",
+    "type": "service",
+    "slug": "brow-lift",
+    "title": "Brow Lift a Marrakech | Sourcils structures",
+    "description": "Brow lift a Marrakech pour un sourcil discipline, releve et harmonieux.",
+    "canonical": "https://islady.ma/fr/products/brow-lift",
+    "sourceUrl": "https://icelady.ma/fr/products/brow-lift",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/products/lash-lift",
+    "type": "service",
+    "slug": "lash-lift",
+    "title": "Lash Lift a Marrakech | Courbure naturelle",
+    "description": "Lash lift a Marrakech pour un regard plus ouvert avec vos cils naturels.",
+    "canonical": "https://islady.ma/fr/products/lash-lift",
+    "sourceUrl": "https://icelady.ma/fr/products/lash-lift",
+    "needsCopy": false
+  },
+  {
+    "path": "/fr/products/hollywood-skin",
+    "type": "service",
+    "slug": "hollywood-skin",
+    "title": "Hollywood Skin a Marrakech | Soin Signature Glow",
+    "description": "Soin Hollywood Skin a Marrakech pour un glow immediat et une meilleure qualite de peau.",
+    "canonical": "https://islady.ma/fr/products/hollywood-skin",
+    "sourceUrl": "https://icelady.ma/fr/products/hollywood-skin",
     "needsCopy": false
   },
   {
@@ -570,6 +670,16 @@
     "needsCopy": false
   },
   {
+    "path": "/ar/products/pressotherapie",
+    "type": "service",
+    "slug": "pressotherapie",
+    "title": "بريسوثيرابي في مراكش | تصريف وخفة الساقين",
+    "description": "البريسوثيرابي في مراكش علاج غير جراحي يعتمد الضغط التسلسلي لدعم التصريف اللمفاوي وتقليل ثقل الساقين مع امكانية دمجه مع برامج التنحيف او التعافي.",
+    "canonical": "https://islady.ma/ar/products/pressotherapie",
+    "sourceUrl": "https://icelady.ma/ar/products/pressotherapie",
+    "needsCopy": false
+  },
+  {
     "path": "/ar/products/therapiefaciale",
     "type": "service",
     "slug": "therapiefaciale",
@@ -587,6 +697,46 @@
     "description": "Our Cryotherapy slimming program is a revolutionary treatment in Marrakech that does not require aspiration, an alternative to liposuction. It has several effects on the body: -Accelerates blood circulation, followed by elimination of toxins and high calorie consumption. -Elimination of localized cellulite. Decreases in fat cells. -Lymphatic drainage. - Muscle toning and firming. -Remodeling and slimming of the body",
     "canonical": "https://islady.ma/ar/products/therapiefroid",
     "sourceUrl": "https://icelady.ma/ar/products/therapiefroid",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/products/electrostimulation",
+    "type": "service",
+    "slug": "electrostimulation",
+    "title": "التحفيز الكهربائي في مراكش | شد الجسم",
+    "description": "جلسات تحفيز كهربائي في مراكش لدعم شد الجسم وتحسين التماسك وتحديد القوام.",
+    "canonical": "https://islady.ma/ar/products/electrostimulation",
+    "sourceUrl": "https://icelady.ma/ar/products/electrostimulation",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/products/brow-lift",
+    "type": "service",
+    "slug": "brow-lift",
+    "title": "براو ليفت في مراكش | حواجب مرتبة",
+    "description": "براو ليفت في مراكش لنتيجة حواجب مرفوعة ومرتبة بشكل طبيعي.",
+    "canonical": "https://islady.ma/ar/products/brow-lift",
+    "sourceUrl": "https://icelady.ma/ar/products/brow-lift",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/products/lash-lift",
+    "type": "service",
+    "slug": "lash-lift",
+    "title": "لاش ليفت في مراكش | انحناءة طبيعية",
+    "description": "لاش ليفت في مراكش لمنح الرموش الطبيعية انحناءة اجمل ونظرة اكثر اتساعا.",
+    "canonical": "https://islady.ma/ar/products/lash-lift",
+    "sourceUrl": "https://icelady.ma/ar/products/lash-lift",
+    "needsCopy": false
+  },
+  {
+    "path": "/ar/products/hollywood-skin",
+    "type": "service",
+    "slug": "hollywood-skin",
+    "title": "هوليوود سكين في مراكش | عناية توقيعية",
+    "description": "هوليوود سكين في مراكش لنضارة فورية وتحسين جودة البشرة.",
+    "canonical": "https://islady.ma/ar/products/hollywood-skin",
+    "sourceUrl": "https://icelady.ma/ar/products/hollywood-skin",
     "needsCopy": false
   },
   {

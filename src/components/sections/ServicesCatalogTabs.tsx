@@ -118,7 +118,12 @@ export function ServicesCatalogTabs({
           <p className="mt-3 text-sm leading-relaxed text-white/80">{consultation.description}</p>
         </div>
         <div className="mt-6 flex flex-wrap gap-3 md:mt-0">
-          <CTA href={contactHref} label={consultation.primaryCtaLabel} className="bg-accent text-white hover:bg-accentDark" />
+          <CTA
+            href={contactHref}
+            label={consultation.primaryCtaLabel}
+            className="bg-accent text-white hover:bg-accentDark"
+            newTab={contactHref.startsWith('http')}
+          />
           {mapHref ? (
             <Link
               href={mapHref}

@@ -24,8 +24,17 @@ export function HeroSection({ hero, locale = DEFAULT_LOCALE }: HeroSectionProps)
           <h1 className="mt-4 font-heading text-5xl leading-tight md:text-6xl">{hero.title}</h1>
           <p className="mt-6 max-w-xl text-base leading-relaxed text-text/75">{hero.subtitle}</p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <CTA href={hero.primaryCta.href} label={hero.primaryCta.label} />
-            <CTA href={hero.secondaryCta.href} label={hero.secondaryCta.label} variant="secondary" />
+            <CTA
+              href={hero.primaryCta.href}
+              label={hero.primaryCta.label}
+              newTab={hero.primaryCta.href.startsWith('http')}
+            />
+            <CTA
+              href={hero.secondaryCta.href}
+              label={hero.secondaryCta.label}
+              variant="secondary"
+              newTab={hero.secondaryCta.href.startsWith('http')}
+            />
           </div>
         </div>
         <div className="relative h-72 overflow-hidden rounded-3xl bg-gradient-to-br from-accent/25 via-stone/30 to-background md:h-[420px]">

@@ -264,6 +264,10 @@ export function t(locale: Locale, key: TranslationKey): string {
 }
 
 export function localizePath(pathname: string, locale: Locale): string {
+  if (/^[a-z][a-z\d+\-.]*:/i.test(pathname) || pathname.startsWith('//')) {
+    return pathname;
+  }
+
   const cleaned = pathname.startsWith('/') ? pathname : `/${pathname}`;
   if (cleaned === '/en') {
     return `/${locale}`;

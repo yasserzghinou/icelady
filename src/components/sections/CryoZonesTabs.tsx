@@ -63,6 +63,8 @@ export function CryoZonesTabs({ tabs }: CryoZonesTabsProps) {
           href={activeTab.ctaHref}
           className="focus-ring mt-4 inline-flex items-center rounded-full border border-text/20 bg-white/70 px-5 py-2 text-sm font-semibold text-text hover:border-accent hover:text-accent"
           data-analytics-id={`cryo-zone-cta-${activeTab.id}`}
+          target={activeTab.ctaHref.startsWith('http') ? '_blank' : undefined}
+          rel={activeTab.ctaHref.startsWith('http') ? 'noopener noreferrer' : undefined}
         >
           {activeTab.ctaLabel}
         </Link>

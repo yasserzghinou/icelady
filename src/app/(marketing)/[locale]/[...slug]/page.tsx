@@ -5,9 +5,10 @@ import type { Metadata } from 'next';
 import { CTA } from '@/components/CTA';
 import { getPageByPath } from '@/lib/content';
 import { DEFAULT_LOCALE, isLocale, localizePath, t, type Locale } from '@/lib/i18n';
-import { localizeGenericPage } from '@/lib/localizedContent';
+import { getLocalizedSiteSettingsAsync, localizeGenericPage } from '@/lib/localizedContent';
 import routeMap from '@/lib/routing/routeMap.json';
 import { buildMetadata } from '@/lib/seo/meta';
+import { toWhatsAppHref } from '@/lib/whatsapp';
 
 function toPath(locale: Locale, slug: string[] | undefined): string {
   if (!slug || slug.length === 0) {
@@ -57,7 +58,7 @@ export function generateMetadata({
   });
 }
 
-export default function LocalizedGenericPage({
+export default async function LocalizedGenericPage({
   params
 }: {
   params: { locale: string; slug: string[] };
@@ -67,6 +68,14 @@ export default function LocalizedGenericPage({
   }
 
   const locale = params.locale as Locale;
+  const siteSettings = await getLocalizedSiteSettingsAsync(locale);
+  const rawBookingHref = toWhatsAppHref(
+    siteSettings.contact.whatsapp || siteSettings.contact.phone
+  );
+  const bookingHref =
+    rawBookingHref === '#'
+      ? localizePath('/en/pages/contact', locale)
+      : rawBookingHref;
   const urlPath = toPath(locale, params.slug);
   const route = routeMap.find((entry) => entry.path === urlPath);
 
@@ -90,8 +99,9 @@ export default function LocalizedGenericPage({
           </p>
           <div className="mt-8">
             <CTA
-              href={localizePath('/en/pages/contact', locale)}
+              href={bookingHref}
               label={t(locale, 'generic.contactIceLady')}
+              newTab={bookingHref.startsWith('http')}
             />
           </div>
         </div>
@@ -121,10 +131,20 @@ export default function LocalizedGenericPage({
           ))}
         </div>
         <div className="mt-8">
-          <CTA
-            href={localizePath(localizedContent.cta.href, locale)}
-            label={localizedContent.cta.label}
-          />
+          {(() => {
+            const isContactCta = localizedContent.cta.href.includes('/pages/contact');
+            const ctaHref = isContactCta
+              ? bookingHref
+              : localizePath(localizedContent.cta.href, locale);
+
+            return (
+              <CTA
+                href={ctaHref}
+                label={localizedContent.cta.label}
+                newTab={isContactCta && ctaHref.startsWith('http')}
+              />
+            );
+          })()}
         </div>
       </div>
     </section>

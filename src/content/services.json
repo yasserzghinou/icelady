@@ -32,9 +32,9 @@
       "duration": "45-60 min",
       "priceNote": "Price shared during consultation",
       "featured": false,
-      "heroImage": "/images/services/chromo.jpg",
+      "heroImage": "/images/services/Chromotherapy.jpg",
       "galleryImages": [
-        "/images/services/chromo.jpg",
+        "/images/services/Chromotherapy.jpg",
         "/images/services/chromo-detail-1.jpg",
         "/images/services/chromo-detail-2.jpg"
       ],
@@ -59,9 +59,9 @@
       "duration": "45-60 min",
       "priceNote": "Price shared during consultation",
       "featured": false,
-      "heroImage": "/images/services/extensions.jpg",
+      "heroImage": "/images/services/new-lashes.jpeg",
       "galleryImages": [
-        "/images/services/extensions.jpg",
+        "/images/services/new-lashes.jpeg",
         "/images/services/extensions-detail-1.jpg",
         "/images/services/extensions-detail-2.jpg"
       ],
@@ -113,9 +113,9 @@
       "duration": "45-60 min",
       "priceNote": "Price shared during consultation",
       "featured": false,
-      "heroImage": "/images/services/microblading.jpg",
+      "heroImage": "/images/services/new-microblading.jpeg",
       "galleryImages": [
-        "/images/services/microblading.jpg",
+        "/images/services/new-microblading.jpeg",
         "/images/services/microblading-detail-1.jpg",
         "/images/services/microblading-detail-2.jpg"
       ],
@@ -140,9 +140,9 @@
       "duration": "45-60 min",
       "priceNote": "Price shared during consultation",
       "featured": false,
-      "heroImage": "/images/services/peeling.jpg",
+      "heroImage": "/images/services/new-peeling-detail-2.jpg",
       "galleryImages": [
-        "/images/services/peeling.jpg",
+        "/images/services/new-peeling-detail-2.jpg",
         "/images/services/peeling-detail-1.jpg",
         "/images/services/peeling-detail-2.jpg"
       ],
@@ -150,6 +150,55 @@
       "seo": {
         "title": "Natural seaweed peeling in Marrakech",
         "description": "Eliminates dead cells, tightens pores, soothes irritation, cleanses and bursts, mattifies the skin. Reduces dark circles under the eyes and gives the skin a plumped complexion. It helps reduce inflammation and improves local blood circulation. Specially formulated to help chronic sun damaged skin by reducing wrinkles."
+      }
+    },
+    {
+      "slug": "pressotherapie",
+      "path": "/en/products/pressotherapie",
+      "name": "Pressotherapy in Marrakech | Drainage & Light Legs",
+      "category": "Body Drainage",
+      "tagline": "Pressotherapy drainage protocol",
+      "summary": "Pressotherapy in Marrakech is a non-invasive sequential compression treatment designed to support lymphatic drainage, reduce heavy-leg sensation, and complement slimming or recovery programs.",
+      "benefits": [
+        "Sequential compression adapted to your comfort level",
+        "Supports circulation and light-leg sensation",
+        "Can be integrated with cryotherapy and contouring plans"
+      ],
+      "duration": "35-45 min",
+      "priceNote": "Price shared during consultation",
+      "featured": false,
+      "heroImage": "/images/services/Pressotherapie.webp",
+      "galleryImages": [
+        "/images/services/Pressotherapie.webp",
+        "/images/services/slimming-detail-1.jpg",
+        "/images/services/slimming-detail-2.jpg"
+      ],
+      "needsCopy": false,
+      "translations": {
+        "fr": {
+          "name": "Pressotherapie a Marrakech | Drainage & Jambes legeres",
+          "category": "Drainage corporel",
+          "tagline": "Protocole de pressotherapie drainage",
+          "summary": "La pressotherapie a Marrakech est un soin non invasif par compression sequentielle pour accompagner le drainage lymphatique, reduire la sensation de jambes lourdes et soutenir les parcours minceur ou recuperation.",
+          "seo": {
+            "title": "Pressotherapie a Marrakech | Drainage & Jambes legeres",
+            "description": "Soin de pressotherapie a Marrakech pour drainage, confort circulatoire et sensation de jambes legeres."
+          }
+        },
+        "ar": {
+          "name": "بريسوثيرابي في مراكش | تصريف وخفة الساقين",
+          "category": "تصريف الجسم",
+          "tagline": "بروتوكول تصريف بالبريسوثيرابي",
+          "summary": "البريسوثيرابي في مراكش علاج غير جراحي يعتمد الضغط التسلسلي لدعم التصريف اللمفاوي وتقليل ثقل الساقين مع امكانية دمجه مع برامج التنحيف او التعافي.",
+          "seo": {
+            "title": "بريسوثيرابي في مراكش | تصريف وخفة الساقين",
+            "description": "جلسات بريسوثيرابي في مراكش لدعم التصريف وراحة الدورة الدموية والشعور بخفة الساقين."
+          }
+        }
+      },
+      "seo": {
+        "title": "Pressotherapy in Marrakech | Drainage & Light Legs",
+        "description": "Pressotherapy sessions in Marrakech for lymphatic drainage, circulation comfort, and lighter legs."
       }
     },
     {
@@ -167,9 +216,9 @@
       "duration": "45-60 min",
       "priceNote": "Price shared during consultation",
       "featured": true,
-      "heroImage": "/images/services/anti-age.jpg",
+      "heroImage": "/images/services/new-cryo-face-lift-.png",
       "galleryImages": [
-        "/images/services/anti-age.jpg",
+        "/images/services/new-cryo-face-lift-.png",
         "/images/services/anti-age-detail-1.jpg",
         "/images/services/anti-age-detail-2.jpg"
       ],
@@ -194,9 +243,9 @@
       "duration": "45-60 min",
       "priceNote": "Price shared during consultation",
       "featured": true,
-      "heroImage": "/images/services/slimming.jpg",
+      "heroImage": "/images/services/new-Cryo-body.png",
       "galleryImages": [
-        "/images/services/slimming.jpg",
+        "/images/services/new-Cryo-body.png",
         "/images/services/slimming-detail-1.jpg",
         "/images/services/slimming-detail-2.jpg"
       ],
@@ -204,6 +253,202 @@
       "seo": {
         "title": "Slimming program (Cryotherapy) | Marrakech",
         "description": "Our Cryotherapy slimming program is a revolutionary treatment in Marrakech that does not require aspiration, an alternative to liposuction. It has several effects on the body: -Accelerates blood circulation, followed by elimination of toxins and high calorie consumption. -Elimination of localized cellulite. Decreases i"
+      }
+    },
+    {
+      "slug": "electrostimulation",
+      "path": "/en/products/electrostimulation",
+      "name": "Electrostimulation in Marrakech | Body Toning",
+      "category": "Body Toning",
+      "tagline": "Electrostimulation sculpting sessions",
+      "summary": "Electrostimulation sessions in Marrakech use targeted muscle activation to support body tone, improve firmness, and complement slimming programs.",
+      "benefits": [
+        "Targeted muscle stimulation adapted to your comfort",
+        "Supports tone and silhouette definition",
+        "Complements cryotherapy and drainage plans"
+      ],
+      "duration": "35-45 min",
+      "priceNote": "Price shared during consultation",
+      "featured": false,
+      "heroImage": "/images/services/slimming-detail-2.jpg",
+      "galleryImages": [
+        "/images/services/slimming-detail-2.jpg",
+        "/images/services/new-Cryo-body.png",
+        "/images/services/Pressotherapie.webp"
+      ],
+      "needsCopy": false,
+      "translations": {
+        "fr": {
+          "name": "Electrostimulation a Marrakech | Tonification corps",
+          "category": "Tonification du corps",
+          "tagline": "Seances d'electrostimulation ciblee",
+          "summary": "L'electrostimulation a Marrakech active les groupes musculaires de facon ciblee pour soutenir la tonicite, ameliorer la fermete et completer les programmes minceur.",
+          "seo": {
+            "title": "Electrostimulation a Marrakech | Tonification corps",
+            "description": "Seances d'electrostimulation a Marrakech pour tonification, fermete et definition de la silhouette."
+          }
+        },
+        "ar": {
+          "name": "التحفيز الكهربائي في مراكش | شد الجسم",
+          "category": "شد الجسم",
+          "tagline": "جلسات تحفيز كهربائي موجهة",
+          "summary": "يعتمد التحفيز الكهربائي في مراكش على تنشيط عضلي موجه لدعم الشد وتحسين التماسك والمساعدة في برامج تنسيق القوام.",
+          "seo": {
+            "title": "التحفيز الكهربائي في مراكش | شد الجسم",
+            "description": "جلسات تحفيز كهربائي في مراكش لدعم شد الجسم وتحسين التماسك وتحديد القوام."
+          }
+        }
+      },
+      "seo": {
+        "title": "Electrostimulation in Marrakech | Body Toning",
+        "description": "Electrostimulation sessions in Marrakech to support muscle tone, firmness, and body contour definition."
+      }
+    },
+    {
+      "slug": "brow-lift",
+      "path": "/en/products/brow-lift",
+      "name": "Brow Lift in Marrakech | Structured Brows",
+      "category": "Brows",
+      "tagline": "Brow lift and styling",
+      "summary": "Brow lift in Marrakech restructures natural brows for a lifted, cleaner, and more disciplined look without heavy makeup.",
+      "benefits": [
+        "Reshapes brow direction for a lifted effect",
+        "Improves daily brow symmetry and styling",
+        "Can be paired with microblading programs"
+      ],
+      "duration": "40-50 min",
+      "priceNote": "Price shared during consultation",
+      "featured": false,
+      "heroImage": "/images/services/new-browlift.jpeg",
+      "galleryImages": [
+        "/images/services/new-browlift.jpeg",
+        "/images/services/new-microblading.jpeg",
+        "/images/services/microblading-detail-1.jpg"
+      ],
+      "needsCopy": false,
+      "translations": {
+        "fr": {
+          "name": "Brow Lift a Marrakech | Sourcils structures",
+          "category": "Sourcils",
+          "tagline": "Lifting et discipline du sourcil",
+          "summary": "Le brow lift a Marrakech discipline et restructure les sourcils pour un effet releve, net et naturel au quotidien.",
+          "seo": {
+            "title": "Brow Lift a Marrakech | Sourcils structures",
+            "description": "Brow lift a Marrakech pour un sourcil discipline, releve et harmonieux."
+          }
+        },
+        "ar": {
+          "name": "براو ليفت في مراكش | حواجب مرتبة",
+          "category": "الحواجب",
+          "tagline": "رفع وترتيب الحواجب",
+          "summary": "البراو ليفت في مراكش يعيد ترتيب شعيرات الحاجب لمنح شكل مرفوع ومرتب وطبيعي بدون مكياج كثيف.",
+          "seo": {
+            "title": "براو ليفت في مراكش | حواجب مرتبة",
+            "description": "براو ليفت في مراكش لنتيجة حواجب مرفوعة ومرتبة بشكل طبيعي."
+          }
+        }
+      },
+      "seo": {
+        "title": "Brow Lift in Marrakech | Structured Brows",
+        "description": "Brow lift sessions in Marrakech for lifted, disciplined, and naturally structured brows."
+      }
+    },
+    {
+      "slug": "lash-lift",
+      "path": "/en/products/lash-lift",
+      "name": "Lash Lift in Marrakech | Natural Curl",
+      "category": "Lashes",
+      "tagline": "Natural lash lift",
+      "summary": "Lash lift in Marrakech enhances natural lash curvature for an open-eye look without extension maintenance.",
+      "benefits": [
+        "Enhances natural lash curve and eye openness",
+        "Low-maintenance alternative to extensions",
+        "Comfort-focused session with personalized finish"
+      ],
+      "duration": "40-50 min",
+      "priceNote": "Price shared during consultation",
+      "featured": false,
+      "heroImage": "/images/services/new-lashlift.jpeg",
+      "galleryImages": [
+        "/images/services/new-lashlift.jpeg",
+        "/images/services/new-lashes.jpeg",
+        "/images/services/extensions-detail-1.jpg"
+      ],
+      "needsCopy": false,
+      "translations": {
+        "fr": {
+          "name": "Lash Lift a Marrakech | Courbure naturelle",
+          "category": "Cils",
+          "tagline": "Rehaussement naturel des cils",
+          "summary": "Le lash lift a Marrakech accentue la courbure naturelle des cils pour un regard ouvert sans pose d extensions.",
+          "seo": {
+            "title": "Lash Lift a Marrakech | Courbure naturelle",
+            "description": "Lash lift a Marrakech pour un regard plus ouvert avec vos cils naturels."
+          }
+        },
+        "ar": {
+          "name": "لاش ليفت في مراكش | انحناءة طبيعية",
+          "category": "الرموش",
+          "tagline": "رفع طبيعي للرموش",
+          "summary": "اللاش ليفت في مراكش يعزز انحناءة الرموش الطبيعية لمنح نظرة اوسع بدون الحاجة لتمديدات.",
+          "seo": {
+            "title": "لاش ليفت في مراكش | انحناءة طبيعية",
+            "description": "لاش ليفت في مراكش لمنح الرموش الطبيعية انحناءة اجمل ونظرة اكثر اتساعا."
+          }
+        }
+      },
+      "seo": {
+        "title": "Lash Lift in Marrakech | Natural Curl",
+        "description": "Lash lift sessions in Marrakech to open the eye with a natural and elegant curl."
+      }
+    },
+    {
+      "slug": "hollywood-skin",
+      "path": "/en/products/hollywood-skin",
+      "name": "Hollywood Skin in Marrakech | Signature Glow",
+      "category": "Signature Face Care",
+      "tagline": "Signature Hollywood Skin protocol",
+      "summary": "Hollywood Skin is a signature facial program combining advanced exfoliation and skin-quality protocols for immediate glow and progressive texture refinement.",
+      "benefits": [
+        "Signature protocol for glow-focused occasions",
+        "Supports smoother texture and fresher tone",
+        "Can be integrated into anti-aging skin plans"
+      ],
+      "duration": "60-75 min",
+      "priceNote": "Price shared during consultation",
+      "featured": true,
+      "heroImage": "/images/services/new-hollywoodskin.jpg",
+      "galleryImages": [
+        "/images/services/new-hollywoodskin.jpg",
+        "/images/services/new-peeling-detail-2.jpg",
+        "/images/services/micro-needling.jpg"
+      ],
+      "needsCopy": false,
+      "translations": {
+        "fr": {
+          "name": "Hollywood Skin a Marrakech | Soin Signature Glow",
+          "category": "Soin Signature Visage",
+          "tagline": "Protocole signature Hollywood Skin",
+          "summary": "Hollywood Skin est un soin signature visage qui combine exfoliation avancee et protocoles qualite peau pour un eclat immediat et un lissage progressif.",
+          "seo": {
+            "title": "Hollywood Skin a Marrakech | Soin Signature Glow",
+            "description": "Soin Hollywood Skin a Marrakech pour un glow immediat et une meilleure qualite de peau."
+          }
+        },
+        "ar": {
+          "name": "هوليوود سكين في مراكش | عناية توقيعية",
+          "category": "عناية توقيعية للوجه",
+          "tagline": "بروتوكول هوليوود سكين",
+          "summary": "هوليوود سكين هو برنامج وجه توقيعي يجمع بين تقشير متقدم وبروتوكولات تحسين جودة البشرة لنضارة فورية وتحسن تدريجي في الملمس.",
+          "seo": {
+            "title": "هوليوود سكين في مراكش | عناية توقيعية",
+            "description": "هوليوود سكين في مراكش لنضارة فورية وتحسين جودة البشرة."
+          }
+        }
+      },
+      "seo": {
+        "title": "Hollywood Skin in Marrakech | Signature Glow",
+        "description": "Hollywood Skin signature treatment in Marrakech for immediate radiance and progressive skin-quality improvement."
       }
     }
   ]

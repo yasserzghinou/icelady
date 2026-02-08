@@ -53,6 +53,9 @@ function firstHeading(page: OldManifestPage | undefined): string | undefined {
 }
 
 function inferCategory(slug: string): string {
+  if (slug.includes('press')) {
+    return 'Body Drainage';
+  }
   if (slug.includes('micro')) {
     return 'Skin & Brows';
   }
@@ -113,24 +116,49 @@ export function seedContent({ routeMap, pages }: SeedContentInput): {
     (entry) => entry.type === 'generic' || entry.type === 'utility' || entry.type === 'about'
   );
   const serviceImageBySlug: Record<string, string> = {
-    chromo: '/images/services/chromo.jpg',
-    'extension-de-cils-en-soie-et-kashmir': '/images/services/extensions.jpg',
+    chromo: '/images/services/Chromotherapy.jpg',
+    electrostimulation: '/images/services/slimming-detail-2.jpg',
+    'extension-de-cils-en-soie-et-kashmir': '/images/services/new-lashes.jpeg',
+    'hollywood-skin': '/images/services/new-hollywoodskin.jpg',
+    'brow-lift': '/images/services/new-browlift.jpeg',
+    'lash-lift': '/images/services/new-lashlift.jpeg',
     'micro-needling': '/images/services/micro-needling.jpg',
-    microblading: '/images/services/microblading.jpg',
-    'peeling-naturel-aux-algues': '/images/services/peeling.jpg',
-    therapiefaciale: '/images/services/anti-age.jpg',
-    therapiefroid: '/images/services/slimming.jpg'
+    microblading: '/images/services/new-microblading.jpeg',
+    'peeling-naturel-aux-algues': '/images/services/new-peeling-detail-2.jpg',
+    pressotherapie: '/images/services/Pressotherapie.webp',
+    therapiefaciale: '/images/services/new-cryo-face-lift-.png',
+    therapiefroid: '/images/services/new-Cryo-body.png'
   };
   const serviceGalleryBySlug: Record<string, string[]> = {
     chromo: [
-      '/images/services/chromo.jpg',
+      '/images/services/Chromotherapy.jpg',
       '/images/services/chromo-detail-1.jpg',
       '/images/services/chromo-detail-2.jpg'
     ],
+    electrostimulation: [
+      '/images/services/slimming-detail-2.jpg',
+      '/images/services/new-Cryo-body.png',
+      '/images/services/Pressotherapie.webp'
+    ],
     'extension-de-cils-en-soie-et-kashmir': [
-      '/images/services/extensions.jpg',
+      '/images/services/new-lashes.jpeg',
       '/images/services/extensions-detail-1.jpg',
       '/images/services/extensions-detail-2.jpg'
+    ],
+    'hollywood-skin': [
+      '/images/services/new-hollywoodskin.jpg',
+      '/images/services/new-peeling-detail-2.jpg',
+      '/images/services/micro-needling.jpg'
+    ],
+    'brow-lift': [
+      '/images/services/new-browlift.jpeg',
+      '/images/services/new-microblading.jpeg',
+      '/images/services/microblading-detail-1.jpg'
+    ],
+    'lash-lift': [
+      '/images/services/new-lashlift.jpeg',
+      '/images/services/new-lashes.jpeg',
+      '/images/services/extensions-detail-1.jpg'
     ],
     'micro-needling': [
       '/images/services/micro-needling.jpg',
@@ -138,22 +166,27 @@ export function seedContent({ routeMap, pages }: SeedContentInput): {
       '/images/services/micro-needling-detail-2.jpg'
     ],
     microblading: [
-      '/images/services/microblading.jpg',
+      '/images/services/new-microblading.jpeg',
       '/images/services/microblading-detail-1.jpg',
       '/images/services/microblading-detail-2.jpg'
     ],
     'peeling-naturel-aux-algues': [
-      '/images/services/peeling.jpg',
+      '/images/services/new-peeling-detail-2.jpg',
       '/images/services/peeling-detail-1.jpg',
       '/images/services/peeling-detail-2.jpg'
     ],
+    pressotherapie: [
+      '/images/services/Pressotherapie.webp',
+      '/images/services/slimming-detail-1.jpg',
+      '/images/services/slimming-detail-2.jpg'
+    ],
     therapiefaciale: [
-      '/images/services/anti-age.jpg',
+      '/images/services/new-cryo-face-lift-.png',
       '/images/services/anti-age-detail-1.jpg',
       '/images/services/anti-age-detail-2.jpg'
     ],
     therapiefroid: [
-      '/images/services/slimming.jpg',
+      '/images/services/new-Cryo-body.png',
       '/images/services/slimming-detail-1.jpg',
       '/images/services/slimming-detail-2.jpg'
     ]

@@ -33,6 +33,29 @@ const serviceTranslations: Record<string, Record<Locale, ServiceCopy>> = {
         'يعتمد العلاج اللوني على أطوال موجية محددة لدعم التصريف وتحسين مظهر الجلد والمساندة ضمن بروتوكولات مكافحة السيلوليت.'
     }
   },
+  pressotherapie: {
+    en: {
+      name: 'Pressotherapy in Marrakech',
+      category: 'Body Drainage',
+      tagline: 'Sequential Drainage Compression',
+      summary:
+        'Pressotherapy uses controlled sequential compression to support drainage, reduce heavy-leg sensation, and complement body programs.'
+    },
+    fr: {
+      name: 'Pressotherapie a Marrakech',
+      category: 'Drainage corporel',
+      tagline: 'Compression sequentielle drainage',
+      summary:
+        'La pressotherapie utilise une compression sequentielle controlee pour soutenir le drainage, reduire la sensation de jambes lourdes et completer les programmes corps.'
+    },
+    ar: {
+      name: 'بريسوثيرابي في مراكش',
+      category: 'تصريف الجسم',
+      tagline: 'ضغط تسلسلي للتصريف',
+      summary:
+        'يعتمد البريسوثيرابي على ضغط تسلسلي محكوم لدعم التصريف وتقليل ثقل الساقين مع امكانية دمجه مع برامج القوام.'
+    }
+  },
   'extension-de-cils-en-soie-et-kashmir': {
     en: {
       name: 'Silk & Kashmir Eyelash Extensions',
@@ -340,6 +363,23 @@ const defaultBenefitsByLocale: Record<Locale, string[]> = {
 };
 
 const benefitTranslationsBySlug: Record<string, Record<Locale, string[]>> = {
+  pressotherapie: {
+    en: [
+      'Sequential compression adapted to your comfort level',
+      'Supports circulation comfort and light-leg sensation',
+      'Pairs well with slimming and recovery-focused plans'
+    ],
+    fr: [
+      'Compression sequentielle ajustee a votre confort',
+      'Soutien du confort circulatoire et sensation de jambes legeres',
+      'Se combine bien avec les plans minceur et recuperation'
+    ],
+    ar: [
+      'ضغط تسلسلي مضبوط حسب مستوى راحتك',
+      'يدعم راحة الدورة الدموية واحساس خفة الساقين',
+      'يتكامل مع برامج التنحيف والتعافي'
+    ]
+  },
   microblading: {
     en: [
       'Bespoke brow architecture for your face shape',

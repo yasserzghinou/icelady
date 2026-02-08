@@ -5,6 +5,7 @@ import { CTA } from '@/components/CTA';
 import { CryoLeadCaptureCard } from '@/components/sections/CryoLeadCaptureCard';
 import { CryoZonesTabs } from '@/components/sections/CryoZonesTabs';
 import type { ServiceLandingCopy } from '@/lib/serviceLandingTemplate';
+import { toTelHref, toWhatsAppHref } from '@/lib/whatsapp';
 
 interface ServiceLandingTemplateProps {
   content: ServiceLandingCopy;
@@ -24,22 +25,14 @@ interface ServiceLandingTemplateProps {
   heroImage?: string;
 }
 
-function toTelHref(phone: string): string {
-  const cleaned = phone.replace(/[^+\d]/g, '');
-  return `tel:${cleaned}`;
-}
-
-function toWhatsAppHref(phone: string): string {
-  const cleaned = phone.replace(/\D/g, '');
-  return `https://wa.me/${cleaned}`;
-}
-
 export function ServiceLandingTemplate({
   content,
   paths,
   contact,
-  heroImage = '/images/services/slimming.jpg'
+  heroImage = '/images/services/new-Cryo-body.png'
 }: ServiceLandingTemplateProps) {
+  const bookingInNewTab = paths.contact.startsWith('http');
+
   return (
     <>
       <section className="section-shell pt-8 md:pt-10">
@@ -100,6 +93,7 @@ export function ServiceLandingTemplate({
                   href={paths.contact}
                   label={content.contactHeader.primaryCta}
                   trackingId="landing-header-primary"
+                  newTab={bookingInNewTab}
                 />
                 <Link
                   href={toWhatsAppHref(contact.whatsapp || contact.phone)}
@@ -147,6 +141,7 @@ export function ServiceLandingTemplate({
                 href={paths.contact}
                 label={content.hero.primaryCta}
                 trackingId="landing-hero-primary"
+                newTab={bookingInNewTab}
               />
               <CTA
                 href={paths.services}
@@ -403,7 +398,15 @@ export function ServiceLandingTemplate({
               <p className="mt-4 text-sm text-text/75">{content.faqVisit.visitIntro}</p>
               <p className="mt-4 text-sm text-text/75">{contact.address}</p>
               <p className="mt-1 text-sm text-text/75">
-                Telephone / WhatsApp: {contact.phone || contact.whatsapp}
+                Telephone / WhatsApp:{' '}
+                <Link
+                  href={toWhatsAppHref(contact.whatsapp || contact.phone)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-ring hover:text-accent"
+                >
+                  {contact.phone || contact.whatsapp}
+                </Link>
               </p>
 
               <div className="mt-6">
@@ -411,6 +414,7 @@ export function ServiceLandingTemplate({
                   href={paths.contact}
                   label={content.faqVisit.appointmentCta}
                   trackingId="landing-visit-appointment"
+                  newTab={bookingInNewTab}
                 />
               </div>
 
@@ -453,6 +457,7 @@ export function ServiceLandingTemplate({
               label={content.finalCta.primaryCta}
               className="px-8"
               trackingId="landing-final-primary"
+              newTab={bookingInNewTab}
             />
             <CTA
               href={paths.services}
@@ -471,6 +476,7 @@ export function ServiceLandingTemplate({
             label={content.finalCta.primaryCta}
             className="flex-1 justify-center px-4 py-2"
             trackingId="landing-mobile-primary"
+            newTab={bookingInNewTab}
           />
           <Link
             href={toWhatsAppHref(contact.whatsapp || contact.phone)}

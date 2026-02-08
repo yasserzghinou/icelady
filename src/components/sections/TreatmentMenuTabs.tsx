@@ -87,7 +87,12 @@ function Card({ card }: { card: TreatmentCard }) {
         </div>
 
         <div className="mt-5 flex flex-wrap gap-2">
-          <CTA href={card.reserveHref} label={card.reserveLabel} className="px-4 py-2" />
+          <CTA
+            href={card.reserveHref}
+            label={card.reserveLabel}
+            className="px-4 py-2"
+            newTab={card.reserveHref.startsWith('http')}
+          />
           <Link
             href={card.discoverHref}
             className="focus-ring inline-flex items-center rounded-full border border-text/20 bg-white/85 px-4 py-2 text-sm font-semibold text-text hover:border-accent hover:text-accent"

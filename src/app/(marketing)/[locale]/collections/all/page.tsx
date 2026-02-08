@@ -4,8 +4,10 @@ import type { Metadata } from 'next';
 
 import { TreatmentMenuTabs } from '@/components/sections/TreatmentMenuTabs';
 import { DEFAULT_LOCALE, isLocale, localizePath, t, type Locale } from '@/lib/i18n';
+import { getLocalizedSiteSettingsAsync } from '@/lib/localizedContent';
 import { getLocalizedServicesAsync } from '@/lib/localizedEntities';
 import { buildMetadata } from '@/lib/seo/meta';
+import { toWhatsAppHref } from '@/lib/whatsapp';
 
 type GoalId = 'all' | 'slim' | 'drain' | 'antiAge' | 'glow' | 'redefine';
 type CardKey =
@@ -58,6 +60,8 @@ const bodyProgramBlueprints: CardBlueprint[] = [
   {
     key: 'bodyProgramElectro',
     kind: 'programme',
+    sourceSlug: 'electrostimulation',
+    discoverSlug: 'electrostimulation',
     image: '/images/services/slimming-detail-2.jpg',
     goals: ['slim', 'redefine'],
     interest: 'programme-amincissant-electrostimulation'
@@ -74,7 +78,9 @@ const bodyProgramBlueprints: CardBlueprint[] = [
   {
     key: 'bodyProgramPress',
     kind: 'programme',
-    image: '/images/services/slimming-detail-1.jpg',
+    sourceSlug: 'pressotherapie',
+    discoverSlug: 'pressotherapie',
+    image: '/images/services/Pressotherapie.webp',
     goals: ['drain', 'redefine'],
     interest: 'programme-drainage-pressotherapie'
   }
@@ -93,6 +99,8 @@ const bodyTreatmentBlueprints: CardBlueprint[] = [
   {
     key: 'bodyElectro',
     kind: 'treatment',
+    sourceSlug: 'electrostimulation',
+    discoverSlug: 'electrostimulation',
     image: '/images/services/slimming-detail-2.jpg',
     goals: ['slim', 'redefine'],
     interest: 'electrostimulation'
@@ -109,7 +117,9 @@ const bodyTreatmentBlueprints: CardBlueprint[] = [
   {
     key: 'bodyPress',
     kind: 'treatment',
-    image: '/images/services/slimming.jpg',
+    sourceSlug: 'pressotherapie',
+    discoverSlug: 'pressotherapie',
+    image: '/images/services/Pressotherapie.webp',
     goals: ['drain'],
     interest: 'pressotherapie'
   },
@@ -128,8 +138,8 @@ const faceProgramBlueprints: CardBlueprint[] = [
   {
     key: 'faceSignatureHollywood',
     kind: 'signature',
-    sourceSlug: 'micro-needling',
-    discoverSlug: 'micro-needling',
+    sourceSlug: 'hollywood-skin',
+    discoverSlug: 'hollywood-skin',
     image: '/images/services/new-hollywoodskin.jpg',
     goals: ['antiAge', 'glow', 'redefine'],
     interest: 'hollywood-skin-signature-visage'
@@ -179,7 +189,8 @@ const browBlueprints: CardBlueprint[] = [
   {
     key: 'eyesBrowLift',
     kind: 'treatment',
-    sourceSlug: 'microblading',
+    sourceSlug: 'brow-lift',
+    discoverSlug: 'brow-lift',
     image: '/images/services/new-browlift.jpeg',
     goals: ['redefine', 'glow'],
     interest: 'brow-lift'
@@ -199,7 +210,8 @@ const lashBlueprints: CardBlueprint[] = [
   {
     key: 'eyesLashLift',
     kind: 'treatment',
-    sourceSlug: 'extension-de-cils-en-soie-et-kashmir',
+    sourceSlug: 'lash-lift',
+    discoverSlug: 'lash-lift',
     image: '/images/services/new-lashlift.jpeg',
     goals: ['glow', 'redefine'],
     interest: 'lash-lift'
@@ -676,10 +688,14 @@ export default async function LocalizedServicesIndexPage({ params }: { params: {
   }
 
   const locale = params.locale as Locale;
-  const services = await getLocalizedServicesAsync(locale);
+  const [services, siteSettings] = await Promise.all([
+    getLocalizedServicesAsync(locale),
+    getLocalizedSiteSettingsAsync(locale)
+  ]);
   const copy = menuCopy[locale];
   const serviceBySlug = new Map(services.map((service) => [service.slug, service]));
   const contactHref = localizePath('/en/pages/contact', locale);
+  const whatsappNumber = siteSettings.contact.whatsapp || siteSettings.contact.phone;
   const defaultPriceNote =
     services.find((service) => service.priceNote)?.priceNote ||
     (locale === 'fr'
@@ -692,6 +708,17 @@ export default async function LocalizedServicesIndexPage({ params }: { params: {
     const cardCopy = copy.cards[blueprint.key];
     const sourceService = blueprint.sourceSlug ? serviceBySlug.get(blueprint.sourceSlug) : undefined;
     const discoverService = blueprint.discoverSlug ? serviceBySlug.get(blueprint.discoverSlug) : undefined;
+    const bookingMessage =
+      locale === 'fr'
+        ? `Bonjour Ice Lady, je souhaite reserver ${sourceService?.name || cardCopy.title}.`
+        : locale === 'ar'
+          ? `مرحبا آيس ليدي، أرغب في حجز ${sourceService?.name || cardCopy.title}.`
+          : `Hello Ice Lady, I want to book ${sourceService?.name || cardCopy.title}.`;
+    const rawReserveHref = toWhatsAppHref(whatsappNumber, bookingMessage);
+    const reserveHref =
+      rawReserveHref === '#'
+        ? `${contactHref}?intent=${encodeURIComponent(blueprint.interest)}`
+        : rawReserveHref;
 
     return {
       id: blueprint.key,
@@ -704,7 +731,7 @@ export default async function LocalizedServicesIndexPage({ params }: { params: {
       discoverHref: discoverService
         ? localizePath(discoverService.path, locale)
         : `${contactHref}?intent=${encodeURIComponent(blueprint.interest)}`,
-      reserveHref: `${contactHref}?intent=${encodeURIComponent(blueprint.interest)}`,
+      reserveHref,
       discoverLabel: copy.discoverLabel,
       reserveLabel: copy.reserveLabel,
       badge: cardCopy.badge,

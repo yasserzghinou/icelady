@@ -4,7 +4,8 @@ import type { Metadata } from 'next';
 
 import { CTA } from '@/components/CTA';
 import { buildMetadata } from '@/lib/seo/meta';
-import { getServiceBySlug, getServices } from '@/lib/content';
+import { getServiceBySlug, getServices, getSiteSettings } from '@/lib/content';
+import { toWhatsAppHref } from '@/lib/whatsapp';
 
 export function generateStaticParams() {
   return getServices().map((service) => ({
@@ -32,6 +33,12 @@ export function generateMetadata({ params }: { params: { slug: string } }): Meta
 
 export default function ServiceDetailPage({ params }: { params: { slug: string } }) {
   const service = getServiceBySlug(params.slug);
+  const settings = getSiteSettings();
+  const rawBookingHref = toWhatsAppHref(
+    settings.contact.whatsapp || settings.contact.phone,
+    `Hello Ice Lady, I want to book a consultation for ${service?.name || 'this treatment'}.`
+  );
+  const bookingHref = rawBookingHref === '#' ? '/en/pages/contact' : rawBookingHref;
 
   if (!service) {
     notFound();
@@ -63,7 +70,7 @@ export default function ServiceDetailPage({ params }: { params: { slug: string }
         </div>
 
         <div className="mt-9">
-          <CTA href="/en/pages/contact" label="Book Consultation" />
+          <CTA href={bookingHref} label="Book Consultation" newTab={bookingHref.startsWith('http')} />
         </div>
       </div>
     </section>

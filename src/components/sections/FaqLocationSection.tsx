@@ -1,5 +1,6 @@
 import { DEFAULT_LOCALE, Locale, t } from '@/lib/i18n';
 import { CTA } from '@/components/CTA';
+import { toWhatsAppHref } from '@/lib/whatsapp';
 
 interface FaqLocationSectionProps {
   faq: Array<{ question: string; answer: string }>;
@@ -14,6 +15,10 @@ interface FaqLocationSectionProps {
 }
 
 export function FaqLocationSection({ faq, contact, locale = DEFAULT_LOCALE }: FaqLocationSectionProps) {
+  const whatsappNumber = contact.whatsapp || contact.phone;
+  const whatsappHref = toWhatsAppHref(whatsappNumber);
+  const bookingHref = whatsappHref === '#' ? `/${locale}/pages/contact` : whatsappHref;
+
   return (
     <section className="section-shell mt-16 pb-12">
       <div className="grid gap-8 md:grid-cols-2">
@@ -49,10 +54,26 @@ export function FaqLocationSection({ faq, contact, locale = DEFAULT_LOCALE }: Fa
               )}
             </p>
             <p className="mt-1 text-sm text-text/75">
-              {t(locale, 'contact.phoneWhatsapp')}: {contact.phone || contact.whatsapp}
+              {t(locale, 'contact.phoneWhatsapp')}:{' '}
+              {whatsappHref !== '#' ? (
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-ring underline decoration-stone-400 underline-offset-4 hover:text-accent"
+                >
+                  {whatsappNumber}
+                </a>
+              ) : (
+                whatsappNumber
+              )}
             </p>
             <div className="mt-6">
-              <CTA href={`/${locale}/pages/contact`} label={t(locale, 'cta.requestAppointment')} />
+              <CTA
+                href={bookingHref}
+                label={t(locale, 'cta.requestAppointment')}
+                newTab={bookingHref.startsWith('http')}
+              />
             </div>
             {contact.mapProfileUrl ? (
               <a

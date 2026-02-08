@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 import { DEFAULT_LOCALE, isLocale, t, type Locale } from '@/lib/i18n';
 import { getLocalizedSiteSettingsAsync } from '@/lib/localizedContent';
 import { buildMetadata } from '@/lib/seo/meta';
+import { toWhatsAppHref } from '@/lib/whatsapp';
 
 export function generateStaticParams() {
   return [{ locale: 'fr' }, { locale: 'en' }, { locale: 'ar' }];
@@ -28,6 +29,8 @@ export default async function LocalizedContactPage({ params }: { params: { local
 
   const locale = params.locale as Locale;
   const settings = await getLocalizedSiteSettingsAsync(locale);
+  const whatsappNumber = settings.contact.whatsapp || settings.contact.phone;
+  const whatsappHref = toWhatsAppHref(whatsappNumber);
 
   return (
     <section className="section-shell pb-14 pt-14">
@@ -41,7 +44,19 @@ export default async function LocalizedContactPage({ params }: { params: { local
               <span className="font-semibold">{t(locale, 'contact.phone')}:</span> {settings.contact.phone}
             </li>
             <li>
-              <span className="font-semibold">{t(locale, 'contact.whatsapp')}:</span> {settings.contact.whatsapp}
+              <span className="font-semibold">{t(locale, 'contact.whatsapp')}:</span>{' '}
+              {whatsappHref !== '#' ? (
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-ring underline decoration-stone-400 underline-offset-4 hover:text-accent"
+                >
+                  {whatsappNumber}
+                </a>
+              ) : (
+                whatsappNumber
+              )}
             </li>
             <li>
               <span className="font-semibold">{t(locale, 'contact.email')}:</span> {settings.contact.email}

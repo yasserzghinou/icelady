@@ -1,5 +1,6 @@
 import { buildMetadata } from '@/lib/seo/meta';
 import { getSiteSettings } from '@/lib/content';
+import { toWhatsAppHref } from '@/lib/whatsapp';
 
 export const metadata = buildMetadata({
   path: '/en/pages/contact',
@@ -9,6 +10,8 @@ export const metadata = buildMetadata({
 
 export default function ContactPage() {
   const settings = getSiteSettings();
+  const whatsappNumber = settings.contact.whatsapp || settings.contact.phone;
+  const whatsappHref = toWhatsAppHref(whatsappNumber);
 
   return (
     <section className="section-shell pb-14 pt-14">
@@ -24,7 +27,19 @@ export default function ContactPage() {
               <span className="font-semibold">Phone:</span> {settings.contact.phone}
             </li>
             <li>
-              <span className="font-semibold">WhatsApp:</span> {settings.contact.whatsapp}
+              <span className="font-semibold">WhatsApp:</span>{' '}
+              {whatsappHref !== '#' ? (
+                <a
+                  href={whatsappHref}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="focus-ring underline decoration-stone-400 underline-offset-4 hover:text-accent"
+                >
+                  {whatsappNumber}
+                </a>
+              ) : (
+                whatsappNumber
+              )}
             </li>
             <li>
               <span className="font-semibold">Email:</span> {settings.contact.email}

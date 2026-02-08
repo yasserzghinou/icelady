@@ -11,6 +11,7 @@ import { DEFAULT_LOCALE, isLocale, localizePath, type Locale } from '@/lib/i18n'
 import { getLocalizedSiteSettingsAsync } from '@/lib/localizedContent';
 import { getLocalizedServicesAsync } from '@/lib/localizedEntities';
 import { buildMetadata } from '@/lib/seo/meta';
+import { toWhatsAppHref } from '@/lib/whatsapp';
 
 export function generateStaticParams() {
   return [{ locale: 'fr' }, { locale: 'en' }, { locale: 'ar' }];
@@ -35,13 +36,18 @@ export default async function LocalizedHomePage({ params }: { params: { locale: 
 
   const locale = params.locale as Locale;
   const settings = await getLocalizedSiteSettingsAsync(locale);
+  const rawBookingWhatsAppHref = toWhatsAppHref(settings.contact.whatsapp || settings.contact.phone);
+  const bookingWhatsAppHref =
+    rawBookingWhatsAppHref === '#'
+      ? localizePath('/en/pages/contact', locale)
+      : rawBookingWhatsAppHref;
   const localizedSettings = {
     ...settings,
     hero: {
       ...settings.hero,
       primaryCta: {
         ...settings.hero.primaryCta,
-        href: localizePath(settings.hero.primaryCta.href, locale)
+        href: bookingWhatsAppHref
       },
       secondaryCta: {
         ...settings.hero.secondaryCta,
