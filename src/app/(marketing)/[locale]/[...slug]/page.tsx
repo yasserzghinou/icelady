@@ -21,7 +21,11 @@ function toPrimaryPath(path: string): string {
   return path.replace(/^\/(fr|ar)\//, '/en/').replace(/^\/(fr|ar)$/, '/en');
 }
 
-export function generateMetadata({ params }: { params: { locale: string; slug: string[] } }): Metadata {
+export function generateMetadata({
+  params
+}: {
+  params: { locale: string; slug: string[] };
+}): Metadata {
   const locale = isLocale(params.locale) ? (params.locale as Locale) : DEFAULT_LOCALE;
   const urlPath = toPath(locale, params.slug);
   const route = routeMap.find((entry) => entry.path === urlPath);
@@ -34,6 +38,18 @@ export function generateMetadata({ params }: { params: { locale: string; slug: s
     });
   }
 
+  if (route.type === 'utility') {
+    return buildMetadata({
+      path: route.path,
+      title: route.title,
+      description: route.description,
+      robots: {
+        index: false,
+        follow: false
+      }
+    });
+  }
+
   return buildMetadata({
     path: route.path,
     title: route.title,
@@ -41,7 +57,11 @@ export function generateMetadata({ params }: { params: { locale: string; slug: s
   });
 }
 
-export default function LocalizedGenericPage({ params }: { params: { locale: string; slug: string[] } }) {
+export default function LocalizedGenericPage({
+  params
+}: {
+  params: { locale: string; slug: string[] };
+}) {
   if (!isLocale(params.locale)) {
     notFound();
   }
@@ -61,11 +81,18 @@ export default function LocalizedGenericPage({ params }: { params: { locale: str
     return (
       <section className="section-shell pb-14 pt-14">
         <div className="section-card p-8 md:p-12">
-          <p className="text-xs uppercase tracking-[0.2em] text-accent">{t(locale, 'generic.seoPreservedRoute')}</p>
+          <p className="text-xs uppercase tracking-[0.2em] text-accent">
+            {t(locale, 'generic.seoPreservedRoute')}
+          </p>
           <h1 className="mt-3 font-heading text-4xl">{route.title}</h1>
-          <p className="mt-5 max-w-3xl text-base leading-relaxed text-text/75">{route.description}</p>
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-text/75">
+            {route.description}
+          </p>
           <div className="mt-8">
-            <CTA href={localizePath('/en/pages/contact', locale)} label={t(locale, 'generic.contactIceLady')} />
+            <CTA
+              href={localizePath('/en/pages/contact', locale)}
+              label={t(locale, 'generic.contactIceLady')}
+            />
           </div>
         </div>
       </section>
@@ -75,19 +102,29 @@ export default function LocalizedGenericPage({ params }: { params: { locale: str
   return (
     <section className="section-shell pb-14 pt-14">
       <div className="section-card p-8 md:p-12">
-        <p className="text-xs uppercase tracking-[0.2em] text-accent">{t(locale, 'generic.preservedUrl')}</p>
+        <p className="text-xs uppercase tracking-[0.2em] text-accent">
+          {t(locale, 'generic.preservedUrl')}
+        </p>
         <h1 className="mt-3 font-heading text-5xl">{localizedContent.heading}</h1>
-        <p className="mt-5 max-w-3xl text-base leading-relaxed text-text/75">{localizedContent.intro}</p>
+        <p className="mt-5 max-w-3xl text-base leading-relaxed text-text/75">
+          {localizedContent.intro}
+        </p>
         <div className="mt-8 grid gap-4 md:grid-cols-2">
           {localizedContent.sections.map((section) => (
-            <article key={section.title} className="rounded-2xl border border-stone/35 bg-white/65 p-5">
+            <article
+              key={section.title}
+              className="rounded-2xl border border-stone/35 bg-white/65 p-5"
+            >
               <h2 className="font-heading text-2xl">{section.title}</h2>
               <p className="mt-3 text-sm leading-relaxed text-text/75">{section.body}</p>
             </article>
           ))}
         </div>
         <div className="mt-8">
-          <CTA href={localizePath(localizedContent.cta.href, locale)} label={localizedContent.cta.label} />
+          <CTA
+            href={localizePath(localizedContent.cta.href, locale)}
+            label={localizedContent.cta.label}
+          />
         </div>
       </div>
     </section>

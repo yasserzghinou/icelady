@@ -1,5 +1,5 @@
-import { redirect } from 'next/navigation';
+import { permanentRedirect } from 'next/navigation';
 
 export default function BlogPostRedirectPage({ params }: { params: { slug: string } }) {
-  redirect(`/fr/blogs/news/${params.slug}`);
+  permanentRedirect(`/fr/blogs/news/${params.slug}`);
 }

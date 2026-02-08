@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { notFound, redirect } from 'next/navigation';
+import { notFound, permanentRedirect } from 'next/navigation';
 
 import type { Metadata } from 'next';
 
@@ -30,7 +30,9 @@ export async function generateMetadata({
     });
   }
 
-  const service = (await getLocalizedServicesAsync(locale)).find((item) => item.slug === params.slug);
+  const service = (await getLocalizedServicesAsync(locale)).find(
+    (item) => item.slug === params.slug
+  );
 
   if (!service) {
     return buildMetadata({
@@ -58,10 +60,12 @@ export default async function LocalizedServiceDetailPage({
 
   const locale = params.locale as Locale;
   if (params.slug === 'therapiefroid') {
-    redirect(localizePath('/en/pages/cryotherapie', locale));
+    permanentRedirect(localizePath('/en/pages/cryotherapie', locale));
   }
 
-  const service = (await getLocalizedServicesAsync(locale)).find((item) => item.slug === params.slug);
+  const service = (await getLocalizedServicesAsync(locale)).find(
+    (item) => item.slug === params.slug
+  );
 
   if (!service) {
     notFound();
@@ -97,23 +101,31 @@ export default async function LocalizedServiceDetailPage({
         <div className="mt-8 grid gap-6 md:grid-cols-[1fr_auto] md:items-center">
           <ul className="space-y-3">
             {service.benefits.map((benefit) => (
-              <li key={benefit} className="rounded-xl border border-stone/35 bg-white/65 px-4 py-3 text-sm text-text/80">
+              <li
+                key={benefit}
+                className="rounded-xl border border-stone/35 bg-white/65 px-4 py-3 text-sm text-text/80"
+              >
                 {benefit}
               </li>
             ))}
           </ul>
           <div className="rounded-2xl border border-stone/35 bg-white/70 p-5 text-sm text-text/80">
             <p>
-              <span className="font-semibold">{t(locale, 'services.duration')}:</span> {service.duration}
+              <span className="font-semibold">{t(locale, 'services.duration')}:</span>{' '}
+              {service.duration}
             </p>
             <p className="mt-2">
-              <span className="font-semibold">{t(locale, 'services.pricing')}:</span> {service.priceNote}
+              <span className="font-semibold">{t(locale, 'services.pricing')}:</span>{' '}
+              {service.priceNote}
             </p>
           </div>
         </div>
 
         <div className="mt-9">
-          <CTA href={localizePath('/en/pages/contact', locale)} label={t(locale, 'services.bookConsultation')} />
+          <CTA
+            href={localizePath('/en/pages/contact', locale)}
+            label={t(locale, 'services.bookConsultation')}
+          />
         </div>
       </div>
     </section>

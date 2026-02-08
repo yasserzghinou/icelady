@@ -1,11 +1,19 @@
 import type { Metadata } from 'next';
 
 import { getSiteSettings } from '@/lib/content';
-import { joinUrl, normalizePath } from '@/lib/utils/paths';
+import { DEFAULT_LOCALE, SUPPORTED_LOCALES, type Locale } from '@/lib/i18n';
+import { joinUrl, normalizePath, replaceFirstSegment } from '@/lib/utils/paths';
+
+const HREFLANG_BY_LOCALE: Record<Locale, string> = {
+  fr: 'fr-MA',
+  en: 'en-MA',
+  ar: 'ar-MA'
+};
 
 export function absoluteUrl(path: string): string {
   const settings = getSiteSettings();
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || String(settings.baseUrl) || 'https://islady.ma';
+  const baseUrl =
+    process.env.NEXT_PUBLIC_SITE_URL || String(settings.baseUrl) || 'https://islady.ma';
 
   return joinUrl(baseUrl, normalizePath(path));
 }
@@ -16,6 +24,7 @@ interface MetadataInput {
   description: string;
   image?: string;
   type?: 'website' | 'article';
+  robots?: Metadata['robots'];
 }
 
 function ogLocaleFromPath(path: string): string {
@@ -28,15 +37,52 @@ function ogLocaleFromPath(path: string): string {
   return 'en_MA';
 }
 
-export function buildMetadata({ path, title, description, image, type = 'website' }: MetadataInput): Metadata {
+function localeFromPath(path: string): Locale | undefined {
+  const segment = path.split('/').filter(Boolean)[0];
+  if (!segment) {
+    return undefined;
+  }
+
+  const locale = segment as Locale;
+  return SUPPORTED_LOCALES.includes(locale) ? locale : undefined;
+}
+
+function languageAlternates(path: string): Record<string, string> | undefined {
+  const locale = localeFromPath(path);
+  if (!locale) {
+    return undefined;
+  }
+
+  const alternatives = SUPPORTED_LOCALES.reduce<Record<string, string>>((accumulator, value) => {
+    const localizedPath = replaceFirstSegment(path, value);
+    accumulator[HREFLANG_BY_LOCALE[value]] = absoluteUrl(localizedPath);
+    return accumulator;
+  }, {});
+
+  alternatives['x-default'] = absoluteUrl(replaceFirstSegment(path, DEFAULT_LOCALE));
+
+  return alternatives;
+}
+
+export function buildMetadata({
+  path,
+  title,
+  description,
+  image,
+  type = 'website',
+  robots
+}: MetadataInput): Metadata {
   const settings = getSiteSettings();
   const canonical = absoluteUrl(path);
+  const ogImage = absoluteUrl(image || '/images/og-default.jpg');
+  const languages = languageAlternates(path);
 
   return {
     title,
     description,
     alternates: {
-      canonical
+      canonical,
+      languages
     },
     openGraph: {
       title,
@@ -47,7 +93,7 @@ export function buildMetadata({ path, title, description, image, type = 'website
       type,
       images: [
         {
-          url: image || '/images/og-default.jpg',
+          url: ogImage,
           width: 1200,
           height: 630,
           alt: title
@@ -58,7 +104,8 @@ export function buildMetadata({ path, title, description, image, type = 'website
       card: 'summary_large_image',
       title,
       description,
-      images: [image || '/images/og-default.jpg']
-    }
+      images: [ogImage]
+    },
+    robots
   };
 }
