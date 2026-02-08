@@ -290,7 +290,7 @@ Every recommendation starts with an in-clinic consultation to confirm protocol s
       address: 'Immeuble STAVROULA rue Av. 4eme D.M.M Plateau N 13, Marrakesh 40010',
       mapProfileUrl: 'https://maps.app.goo.gl/YVsfcBbGLEgMMNwq5',
       mapEmbedUrl:
-        'https://maps.google.com/maps?q=Immeuble%20STAVROULA%20rue%20Av.%204eme%20D.M.M%20Plateau%20N%2013,%20Marrakesh%2040010&t=&z=15&ie=UTF8&iwloc=&output=embed',
+        'https://maps.google.com/maps?hl=en&q=31.6410718%2C-8.0272746%20%28ICE%20LADY%20MARRAKECH%29&t=&z=17&ie=UTF8&iwloc=B&output=embed',
       hours: [
         'Monday - Friday: 10:00 - 19:00',
         'Saturday: 10:00 - 17:00',

@@ -228,6 +228,149 @@ function normalizeImagePath(value: string): string {
   return `/${trimmed}`;
 }
 
+function tryDecodeUri(value: string): string {
+  try {
+    return decodeURIComponent(value.replace(/\+/g, '%20'));
+  } catch {
+    return value;
+  }
+}
+
+function extractMapCoordinates(value: string): { lat: string; lng: string } | null {
+  const decodedValue = tryDecodeUri(value);
+  const sources = [value, decodedValue];
+  const patterns = [
+    /@(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/,
+    /!3d(-?\d+(?:\.\d+)?)!4d(-?\d+(?:\.\d+)?)/,
+    /[?&]q=(-?\d+(?:\.\d+)?),(-?\d+(?:\.\d+)?)/
+  ];
+
+  for (const source of sources) {
+    for (const pattern of patterns) {
+      const match = source.match(pattern);
+      if (match) {
+        return {
+          lat: match[1],
+          lng: match[2]
+        };
+      }
+    }
+  }
+
+  return null;
+}
+
+function extractMapCid(value: string): string | null {
+  const match = value.match(/[?&]cid=([0-9]+)/);
+  return match?.[1] || null;
+}
+
+function buildCidMapEmbedUrl(cid: string): string {
+  return `https://maps.google.com/maps?cid=${cid}&hl=en&output=embed`;
+}
+
+function buildPinnedMapEmbedUrl(lat: string, lng: string): string {
+  const q = encodeURIComponent(`${lat},${lng} (ICE LADY MARRAKECH)`);
+  return `https://maps.google.com/maps?hl=en&q=${q}&t=&z=17&ie=UTF8&iwloc=B&output=embed`;
+}
+
+function normalizeMapEmbedUrl(
+  value: string,
+  mapProfileUrl: string,
+  address: string
+): string {
+  const raw = normalizeString(value, 4000);
+  const iframeSourceMatch = raw.match(/src=(?:"([^"]+)"|'([^']+)')/i);
+  const extractedSrc = iframeSourceMatch?.[1] || iframeSourceMatch?.[2] || '';
+
+  const candidate = (extractedSrc || raw).replace(/&amp;/g, '&').trim();
+  const profile = normalizeString(mapProfileUrl, 1000);
+
+  if (candidate.startsWith('https://') || candidate.startsWith('http://')) {
+    const fromCandidate = extractMapCoordinates(candidate);
+    if (fromCandidate) {
+      return buildPinnedMapEmbedUrl(fromCandidate.lat, fromCandidate.lng);
+    }
+
+    const candidateCid = extractMapCid(candidate);
+    if (candidateCid) {
+      return buildCidMapEmbedUrl(candidateCid);
+    }
+
+    if (candidate.includes('/maps/embed') || candidate.includes('output=embed')) {
+      return candidate;
+    }
+  }
+
+  const fromProfile = extractMapCoordinates(profile);
+  if (fromProfile) {
+    return buildPinnedMapEmbedUrl(fromProfile.lat, fromProfile.lng);
+  }
+
+  const normalizedAddress = normalizeString(address, 260);
+  if (normalizedAddress) {
+    const q = encodeURIComponent(normalizedAddress);
+    return `https://maps.google.com/maps?hl=en&q=${q}&t=&z=17&ie=UTF8&iwloc=B&output=embed`;
+  }
+
+  return candidate;
+}
+
+async function resolveGoogleMapsShortUrl(url: string): Promise<string | null> {
+  const normalizedUrl = normalizeString(url, 1000);
+  if (!normalizedUrl) {
+    return null;
+  }
+
+  let parsed: URL;
+  try {
+    parsed = new URL(normalizedUrl);
+  } catch {
+    return null;
+  }
+
+  const host = parsed.hostname.toLowerCase();
+  const isGoogleMapsShortUrl =
+    host === 'maps.app.goo.gl' ||
+    host.endsWith('.maps.app.goo.gl') ||
+    host === 'goo.gl' ||
+    host.endsWith('.goo.gl');
+
+  if (!isGoogleMapsShortUrl) {
+    return null;
+  }
+
+  const runRequest = async (method: 'HEAD' | 'GET') => {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 4000);
+
+    try {
+      const response = await fetch(normalizedUrl, {
+        method,
+        redirect: 'follow',
+        signal: controller.signal,
+        cache: 'no-store'
+      });
+
+      if (response.url) {
+        return response.url;
+      }
+
+      return null;
+    } catch {
+      return null;
+    } finally {
+      clearTimeout(timeout);
+    }
+  };
+
+  return (await runRequest('HEAD')) || (await runRequest('GET'));
+}
+
+interface BuildBusinessSettingsOptions {
+  mapProfileForEmbedUrl?: string;
+}
+
 function normalizeLocalizedContent(
   input: ServiceUpdateInput['fr'],
   fallback: ServiceLocaleContent
@@ -339,8 +482,14 @@ async function writePersistentJson(key: string, filePath: string, value: unknown
 
 function buildNextBusinessSettings(
   current: SiteSettingsData,
-  input: BusinessSettingsInput
+  input: BusinessSettingsInput,
+  options: BuildBusinessSettingsOptions = {}
 ): SiteSettingsData {
+  const address = normalizeString(input.address, 260);
+  const mapProfileUrl = normalizeString(input.mapProfileUrl, 500);
+  const mapProfileForEmbedUrl =
+    normalizeString(options.mapProfileForEmbedUrl || '', 1000) || mapProfileUrl;
+
   return {
     ...current,
     siteName: normalizeString(input.siteName, 120),
@@ -350,12 +499,30 @@ function buildNextBusinessSettings(
       phone: normalizeString(input.phone, 60),
       whatsapp: normalizeString(input.whatsapp, 60),
       email: normalizeString(input.publicEmail, 120),
-      address: normalizeString(input.address, 260),
-      mapProfileUrl: normalizeString(input.mapProfileUrl, 500),
-      mapEmbedUrl: normalizeString(input.mapEmbedUrl, 1000),
+      address,
+      mapProfileUrl,
+      mapEmbedUrl: normalizeMapEmbedUrl(input.mapEmbedUrl, mapProfileForEmbedUrl, address),
       hours: input.openingHours
         .map((hour) => normalizeString(hour, 120))
         .filter((hour) => hour.length > 0)
+    }
+  };
+}
+
+function normalizeSiteSettingsData(input: SiteSettingsData): SiteSettingsData {
+  const address = String(input.contact?.address || '');
+  const mapProfileUrl = String(input.contact?.mapProfileUrl || '');
+  const mapEmbedUrl = normalizeMapEmbedUrl(
+    String(input.contact?.mapEmbedUrl || ''),
+    mapProfileUrl,
+    address
+  );
+
+  return {
+    ...input,
+    contact: {
+      ...input.contact,
+      mapEmbedUrl
     }
   };
 }
@@ -432,7 +599,8 @@ function getLeadSubmissionsPayload(): LeadSubmissionsPayload {
 }
 
 export function getSiteSettingsData(): SiteSettingsData {
-  return readJsonFile<SiteSettingsData>(SITE_SETTINGS_FILE, buildDefaultSiteSettings());
+  const settings = readJsonFile<SiteSettingsData>(SITE_SETTINGS_FILE, buildDefaultSiteSettings());
+  return normalizeSiteSettingsData(settings);
 }
 
 export async function getSiteSettingsDataAsync(): Promise<SiteSettingsData> {
@@ -441,11 +609,13 @@ export async function getSiteSettingsDataAsync(): Promise<SiteSettingsData> {
     buildDefaultSiteSettings()
   );
 
-  return readPersistentJson<SiteSettingsData>(
+  const settings = await readPersistentJson<SiteSettingsData>(
     BLOB_KEYS.siteSettings,
     SITE_SETTINGS_FILE,
     fallback
   );
+
+  return normalizeSiteSettingsData(settings);
 }
 
 export function updateBusinessSettings(input: BusinessSettingsInput): SiteSettingsData {
@@ -460,7 +630,10 @@ export async function updateBusinessSettingsAsync(
   input: BusinessSettingsInput
 ): Promise<SiteSettingsData> {
   const current = await getSiteSettingsDataAsync();
-  const next = buildNextBusinessSettings(current, input);
+  const resolvedMapProfileUrl = await resolveGoogleMapsShortUrl(input.mapProfileUrl);
+  const next = buildNextBusinessSettings(current, input, {
+    mapProfileForEmbedUrl: resolvedMapProfileUrl || input.mapProfileUrl
+  });
 
   await writePersistentJson(BLOB_KEYS.siteSettings, SITE_SETTINGS_FILE, next);
   return next;
